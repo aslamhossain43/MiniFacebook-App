@@ -1,0 +1,2 @@
+# MiniFacebook-App
+Using Angular
