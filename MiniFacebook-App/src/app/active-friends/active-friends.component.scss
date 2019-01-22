@@ -1,0 +1,46 @@
+
+.activeFriends {
+    width: 50%;
+      height: 100%;
+      border: 1px solid lightgray;
+      margin-left: 25%;
+      margin-top: 0%;
+      position: absolute;
+      background: rgb(233, 235,238);
+      text-align: center;
+    }
+    
+    .activeFriendsText{
+      height: 50px;
+      
+    }
+
+    
+
+/*scroll management*/
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey; 
+    border-radius: 1px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:blue; 
+    border-radius: 6px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:red; 
+  }
+  
+  
+  
+  
+     
