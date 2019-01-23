@@ -7,7 +7,7 @@ export class ProfileService {
     addProfileImage(selectedProfileImage: File) {
  const formData: FormData = new FormData();
  formData.append('selectedProfileImage', selectedProfileImage);
- return this.httpClient.post('http://localhost:8080/profile/stock/image/addImage', selectedProfileImage);
+ return this.httpClient.post('http://localhost:8080/profile/stock/image/addImage', formData);
 
     }
 }

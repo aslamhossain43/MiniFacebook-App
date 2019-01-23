@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
     this.currentProfileImageUpload = this.selectedProfileImage.item(0);
     this.profileImageService.addProfileImage(this.currentProfileImageUpload)
       .subscribe(event => {
-
+this.selectedProfileImageRefreshToWorkImage();
       },
         (error) => {
 
