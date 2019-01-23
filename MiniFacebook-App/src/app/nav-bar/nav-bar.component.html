@@ -51,10 +51,9 @@
 
 
           <li *ngIf="photoUrl">
-     
-                <a><button mat-button><img
-                      [src]="photoUrl" class="img-circle"></button></a>
-              
+            
+                <img [src]="photoUrl" class="img-circle">
+          
             </li>
     
             <li *ngIf="!photoUrl && authenticatedName">

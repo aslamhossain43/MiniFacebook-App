@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./requested-friends.component.scss']
 })
 export class RequestedFriendsComponent implements OnInit {
-
+  items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
   constructor() { }
 
   ngOnInit() {

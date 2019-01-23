@@ -24,6 +24,8 @@ import { ActiveFriendsComponent } from './active-friends/active-friends.componen
 import { AddFriendsComponent } from './add-friends/add-friends.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RequestedFriendsComponent } from './requested-friends/requested-friends.component';
+import { BsModalService } from 'ngx-bootstrap';
+import { ProfileService } from './profile/profile.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,7 @@ import { RequestedFriendsComponent } from './requested-friends/requested-friends
     // FOR NGX BOOTSTRAP MODULE
     NgxBootstrapModule
   ],
-  providers: [AuthGuard, AngularFireAuth],
+  providers: [AuthGuard, AngularFireAuth, BsModalService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

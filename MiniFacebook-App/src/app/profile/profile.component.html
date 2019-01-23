@@ -1,3 +1,101 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+
+      <img id="profileImageShow" src="assets/profile-images/aslam.jpg" class="img-responsive">
+      <!--/--end--profile--image -->
+
+
+
+      <nav class="navbar navbar-default" role="navigation"><!--/--start--timeline--navbar -->
+        <div class="container-fluid">
+
+          <div class="navbar-header">
+            <a id="home" class="navbar-brand" [routerLink]="['/home']" [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="{ exact: true }"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <div id="navbarToggleRight">
+              <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+
+
+          <div class="collapse navbar-collapse" [collapse]=isCollapsed>
+            <ul class="nav navbar-nav">
+
+              <li>
+                <a id="profile-text" [routerLink]="['/profile']" [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }">Timeline</a>
+              </li>
+              <li>
+                <a id="message-text" [routerLink]="['/abouteMadal']" [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }">About</a>
+              </li>
+              <li>
+                <a id="active-friends-text" [routerLink]="['/friendsModal']" [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }">Friends</a>
+              </li>
+              <li>
+                <a id="requested-friends-text" [routerLink]="['/photosModal']" [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }">Photos</a>
+              </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+
+                <ng-template ngIf="true">
+                  <a><button mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger" (mouseenter)="matMenuTrigger.openMenu()">
+                      <span id="caretSize" class="caret"></span>
+                    </button></a>
+                  <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+                    <div (mouseleave)="matMenuTrigger.closeMenu()">
+                      <button mat-menu-item="add-image" (click)="openModal(template)">Add Image</button>
+                      <button mat-menu-item="loginOut">Edit Image</button>
+                      <button mat-menu-item="loginOut">Delete Image</button>
+
+                    </div>
+                  </mat-menu>
+                </ng-template>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--/--end--timeline--navbar -->
+    <!--/--add image modal -->
+    
+      <ng-template #template>
+          <div class="modal-header">
+              <h4 class="modal-title">Notice and save modal carefully </h4>
+             
+          </div>
+          <div class="modal-body">
+              <div id="profileImageSelectButton" class="btn btn-primary">
+                  <input type="file" (change)="selectProfileImage($event)">
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button [disabled]="!selectedProfileImage" id="deleteBtn"
+             class="btn btn-primary" (click)="addProfileImage()" (click)="modalRef.hide()">Save</button>
+            <button id="closeBtn" class="btn btn-primary" (click)="selectedProfileImageRefreshToWorkImage()"
+             (click)="modalRef.hide()">Close</button>
+            
+        </div>
+      </ng-template>
+
+
+
+
+
+
+    </div>
+  </div>
+
+</div>
