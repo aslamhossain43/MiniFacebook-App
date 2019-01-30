@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ProfileService } from './profile.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-profile',
@@ -8,17 +9,26 @@ import { ProfileService } from './profile.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+
   // FOR NAV COLLAPSE
   isCollapsed = true;
+  // GETTING UID
+  uid: string;
   // FOR NGX BOOTSTRAP  MODAL
   public modalRef: BsModalRef;
   // FOR FILE
   selectedProfileImage: FileList;
   currentProfileImageUpload: File;
   constructor( /* FOR NGX BOOTSTRAP  MODAL*/
-    private modalService: BsModalService, private profileImageService: ProfileService) { }
+    private modalService: BsModalService, private profileImageService: ProfileService,
+    private af: AngularFireAuth) {
+      this.af.authState.subscribe(auth => {
+        this.uid = auth.uid;
+      });
+     }
 
   ngOnInit() {
+
   }
 
   // FOR NGX BOOTSTRAP  MODAL
@@ -33,7 +43,7 @@ export class ProfileComponent implements OnInit {
   addProfileImage() {
 
     this.currentProfileImageUpload = this.selectedProfileImage.item(0);
-    this.profileImageService.addProfileImage(this.currentProfileImageUpload)
+    this.profileImageService.addProfileImage(this.currentProfileImageUpload, this.uid)
       .subscribe(event => {
 this.selectedProfileImageRefreshToWorkImage();
       },
@@ -47,3 +57,4 @@ this.selectedProfileImageRefreshToWorkImage();
     this.selectedProfileImage = null;
   }
 }
+

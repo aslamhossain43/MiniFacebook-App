@@ -8,7 +8,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { routes } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
 import { NgMaterialModule } from './app.material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxBootstrapModule } from './app.ngx-bootstrap';
@@ -26,6 +25,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { RequestedFriendsComponent } from './requested-friends/requested-friends.component';
 import { BsModalService } from 'ngx-bootstrap';
 import { ProfileService } from './profile/profile.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -51,8 +51,8 @@ import { ProfileService } from './profile/profile.service';
     AppBootstrapModule,
     // FOR TOUTES
     routes,
-    // FOR FILE UPLOAD
-    HttpClientModule,
+    // HTTP
+    HttpModule,
     // FOR NG MATERIAL
     NgMaterialModule,
     // FOR REACTIVE FORM MODULE

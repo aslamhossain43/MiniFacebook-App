@@ -13,7 +13,7 @@ import { RequestedFriendsComponent } from './requested-friends/requested-friends
 
 export const router: Routes = [
 
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent , canActivate: [AuthGuard] },
   { path: 'message', component: MessagesComponent },
   { path: 'active-friends', component: ActiveFriendsComponent },
   { path: 'add-friends', component: AddFriendsComponent},
@@ -21,7 +21,7 @@ export const router: Routes = [
   { path: 'email', component: EmailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  }
+  { path: 'profile', component: ProfileComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

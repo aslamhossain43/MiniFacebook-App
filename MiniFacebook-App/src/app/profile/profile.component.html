@@ -1,19 +1,23 @@
 <div class="container">
 
   <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+
+
+      <div  id="profileImageShowDiv">
+          <img id="profileImageShow" src="assets/profile-images/aslam.jpg" class="img-thumbnail" alt="No Image">
+          </div>
+          <!--/--end--profile--image -->
+      </div>    
+
     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-
-      <img id="profileImageShow" src="assets/profile-images/aslam.jpg" class="img-responsive">
-      <!--/--end--profile--image -->
-
+     
 
 
       <nav class="navbar navbar-default" role="navigation"><!--/--start--timeline--navbar -->
         <div class="container-fluid">
 
           <div class="navbar-header">
-            <a id="home" class="navbar-brand" [routerLink]="['/home']" [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="{ exact: true }"><i class="fa fa-home" aria-hidden="true"></i></a>
             <div id="navbarToggleRight">
               <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -48,17 +52,28 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li>
+                <a id="requested-friends-text" (click)="openModal(template)" href="javascript:void(0)">
+                   Add Photo
+                </a>
+              </li>
+              <li>
 
                 <ng-template ngIf="true">
                   <a><button mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger" (mouseenter)="matMenuTrigger.openMenu()">
-                      <span id="caretSize" class="caret"></span>
+                      More<span id="caretSize" class="caret"></span>
                     </button></a>
                   <mat-menu #oauth="matMenu" [overlapTrigger]="false">
                     <div (mouseleave)="matMenuTrigger.closeMenu()">
-                      <button mat-menu-item="add-image" (click)="openModal(template)">Add Image</button>
-                      <button mat-menu-item="loginOut">Edit Image</button>
-                      <button mat-menu-item="loginOut">Delete Image</button>
-
+                        <button mat-menu-item [routerLink]="['/videos']" [routerLinkActive]="['active']"
+                        [routerLinkActiveOptions]="{ exact: true }">Videos</button>
+                        <button mat-menu-item [routerLink]="['/musics']" [routerLinkActive]="['active']"
+                        [routerLinkActiveOptions]="{ exact: true }">Musics</button>
+                        <button mat-menu-item [routerLink]="['/sports']" [routerLinkActive]="['active']"
+                        [routerLinkActiveOptions]="{ exact: true }">Sports</button>
+                        <button mat-menu-item [routerLink]="['/books']" [routerLinkActive]="['active']"
+                        [routerLinkActiveOptions]="{ exact: true }">Books</button>
+      
+      
                     </div>
                   </mat-menu>
                 </ng-template>

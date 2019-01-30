@@ -3,11 +3,23 @@
   background: rgb(233,235,238);
 
 }
+
+/*PROFILE IMAGE*/
+#profileImageShowDiv{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 215px;
+  background: white;
+}
 #profileImageShow{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 100%;
+  margin-top: 20%;
+  
 }
 /*PROFILE HANDLE BAR*/
 
@@ -80,7 +92,7 @@ text-align: center;
 .modal-body{
   text-align: center;
   font-size: 18px;
-  color: red;
+  background: lightblue;
 }
 .modal-header{
   background:lightblue;
