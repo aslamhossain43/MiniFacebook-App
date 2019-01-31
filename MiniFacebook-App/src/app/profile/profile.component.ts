@@ -1,7 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
-import { ProfileService } from './profile.service';
+import { ProfileService } from './profile.upload-service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ProfileGetService } from './profile.photo-get-service';
+import { ProfilePhoto } from './profile.photo';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +11,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
   // FOR NAV COLLAPSE
   isCollapsed = true;
   // GETTING UID
@@ -19,17 +20,23 @@ export class ProfileComponent implements OnInit {
   // FOR FILE
   selectedProfileImage: FileList;
   currentProfileImageUpload: File;
+  // ENTITY OBJECT
+  profilePhotos: ProfilePhoto[];
+  profilePhoto = new ProfilePhoto();
   constructor( /* FOR NGX BOOTSTRAP  MODAL*/
     private modalService: BsModalService, private profileImageService: ProfileService,
-    private af: AngularFireAuth) {
-      this.af.authState.subscribe(auth => {
-        this.uid = auth.uid;
-      });
-     }
-
-  ngOnInit() {
-
+    private af: AngularFireAuth, private profileGetService: ProfileGetService) {
+    this.af.authState.subscribe(auth => {
+      this.uid = auth.uid;
+      console.log('UID : ' + this.uid);
+    });
   }
+
+  ngOnInit(): void {
+    this.getProfilePhotosAllInformations(this.uid);
+    // this.profileGetService.getProfileImage(this.uid);
+  }
+
 
   // FOR NGX BOOTSTRAP  MODAL
   public openModal(template: TemplateRef<any>) {
@@ -45,7 +52,7 @@ export class ProfileComponent implements OnInit {
     this.currentProfileImageUpload = this.selectedProfileImage.item(0);
     this.profileImageService.addProfileImage(this.currentProfileImageUpload, this.uid)
       .subscribe(event => {
-this.selectedProfileImageRefreshToWorkImage();
+        this.selectedProfileImageRefreshToWorkImage();
       },
         (error) => {
 
@@ -56,5 +63,16 @@ this.selectedProfileImageRefreshToWorkImage();
   selectedProfileImageRefreshToWorkImage() {
     this.selectedProfileImage = null;
   }
+
+  // GET PROFILE PHOTO'S ALL INFORMATIONS
+  getProfilePhotosAllInformations(uid: string): void {
+    this.profileGetService.getProfilePhotosAllInformation(uid)
+      .subscribe((profilePhotosAllInformation) => {
+        this.profilePhotos = profilePhotosAllInformation;
+        console.log(this.profilePhotos);
+      });
+  }
 }
+
+
 

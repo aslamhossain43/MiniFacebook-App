@@ -5,8 +5,10 @@
 
 
       <div  id="profileImageShowDiv">
-          <img id="profileImageShow" src="assets/profile-images/aslam.jpg" class="img-thumbnail" alt="No Image">
-          </div>
+         
+        <img id="profileImageShow" src="http://192.168.1.105:8080/getprofilephoto" class="img-thumbnail" alt="No Image">
+       
+      </div>
           <!--/--end--profile--image -->
       </div>    
 
@@ -107,6 +109,28 @@
 
 
 
+      <div class="row">
+        <div *ngFor="let p of profilePhotos">
+            <div  class=" col-sm-4  col-md-4 col-lg-4"> 
+                <div class="thumbnail">
+                    <p>Apply Date : {{p.lastModifiedDate}}</p>
+                    <p>ID : {{p.id}}</p>
+                    <p>UID : {{p.uid}}</p>
+                    <p>UID : {{p.photoCode}}</p> 
+               </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -114,3 +138,4 @@
   </div>
 
 </div>
+

@@ -24,8 +24,9 @@ import { AddFriendsComponent } from './add-friends/add-friends.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RequestedFriendsComponent } from './requested-friends/requested-friends.component';
 import { BsModalService } from 'ngx-bootstrap';
-import { ProfileService } from './profile/profile.service';
+import { ProfileService } from './profile/profile.upload-service';
 import { HttpModule } from '@angular/http';
+import { ProfileGetService } from './profile/profile.photo-get-service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { HttpModule } from '@angular/http';
     // FOR NGX BOOTSTRAP MODULE
     NgxBootstrapModule
   ],
-  providers: [AuthGuard, AngularFireAuth, BsModalService, ProfileService],
+  providers: [AuthGuard, AngularFireAuth, BsModalService, ProfileService, ProfileGetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
