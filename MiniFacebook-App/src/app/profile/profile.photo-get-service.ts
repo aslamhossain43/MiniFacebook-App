@@ -12,7 +12,7 @@ export class ProfileGetService {
 
     }*/
     getProfilePhotosAllInformation(uid: string): Observable<ProfilePhoto[]> {
-     return this.http.get('http://192.168.1.105:8080/getprofilephotoinformation/' + uid)
+     return this.http.get('http://192.168.1.105:8080/zuul-profileStock/getprofilephotoinformation/' + uid)
      .pipe(map((response: Response) => response.json()),
      catchError(this.handlError));
      }

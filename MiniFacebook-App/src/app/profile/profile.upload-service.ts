@@ -8,7 +8,7 @@ export class ProfileService {
  const formData: FormData = new FormData();
  formData.append('selectedProfileImage', selectedProfileImage);
  formData.append('uid', uid);
- return this.http.post('http://192.168.1.105:8080/profileimageadd', formData);
+ return this.http.post('http://192.168.1.105:8080/zuul-profileStock/profileimageadd', formData);
 
     }
 }
