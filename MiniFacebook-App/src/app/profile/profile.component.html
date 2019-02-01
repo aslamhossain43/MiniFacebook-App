@@ -4,9 +4,9 @@
       <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
 
 
-      <div  id="profileImageShowDiv">
+      <div  id="profileImageShowDiv" *ngFor="let photo of profilePhotos">
          
-        <img id="profileImageShow" src="http://192.168.1.105:8080/getprofilephoto" class="img-thumbnail" alt="No Image">
+        <img id="profileImageShow" src="http://192.168.1.105:8080/zuul-profileStock/photoCode/single/{{uid}}" class="img-thumbnail" alt="No Image">
        
       </div>
           <!--/--end--profile--image -->
