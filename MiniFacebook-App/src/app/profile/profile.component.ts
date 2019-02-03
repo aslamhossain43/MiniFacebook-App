@@ -4,6 +4,8 @@ import { ProfileService } from './profile.upload-service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ProfileGetService } from './profile.photo-get-service';
 import { ProfilePhoto } from './profile.photo';
+import { ProfileDeleteService } from './profile.delete-service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-profile',
@@ -22,10 +24,12 @@ export class ProfileComponent implements OnInit {
   currentProfileImageUpload: File;
   // ENTITY OBJECT
   profilePhotos: ProfilePhoto[];
+  lastProfilePhoto: ProfilePhoto[];
   profilePhoto = new ProfilePhoto();
   constructor( /* FOR NGX BOOTSTRAP  MODAL*/
     private modalService: BsModalService, private profileImageService: ProfileService,
-    private af: AngularFireAuth, private profileGetService: ProfileGetService) {
+    private af: AngularFireAuth, private profileGetService: ProfileGetService,
+    private profileDeleteService: ProfileDeleteService) {
     this.af.authState.subscribe(auth => {
       this.uid = auth.uid;
       console.log('UID : ' + this.uid);
@@ -34,7 +38,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfilePhotosAllInformations(this.uid);
-    // this.profileGetService.getProfileImage(this.uid);
+      this.getLastProfilePhotoInformation(this.uid);
   }
 
 
@@ -53,6 +57,7 @@ export class ProfileComponent implements OnInit {
     this.profileImageService.addProfileImage(this.currentProfileImageUpload, this.uid)
       .subscribe(event => {
         this.selectedProfileImageRefreshToWorkImage();
+        this.getProfilePhotosAllInformations(this.uid);
       },
         (error) => {
 
@@ -69,9 +74,29 @@ export class ProfileComponent implements OnInit {
     this.profileGetService.getProfilePhotosAllInformation(uid)
       .subscribe((profilePhotosAllInformation) => {
         this.profilePhotos = profilePhotosAllInformation;
-        console.log(this.profilePhotos);
+
       });
   }
+
+  // GET LAST PROFILE PHOTO INFORMATION
+  getLastProfilePhotoInformation(uid: string): void {
+    this.profileGetService.getLastProfilePhotoInformation(uid)
+      .subscribe((profilePhotosAllInformation) => {
+        this.lastProfilePhoto = profilePhotosAllInformation;
+
+      });
+  }
+// DELETE SINGLE PROFILE PHOTO BY ID
+deleteProfilePhotoById(id: string){
+  this.profileDeleteService.deleteProfilePhotoById(id)
+  .subscribe((response: Response) => {
+    this.getProfilePhotosAllInformations(this.uid);
+  },
+  (error) => {
+console.log(error);
+  });
+}
+
 }
 
 

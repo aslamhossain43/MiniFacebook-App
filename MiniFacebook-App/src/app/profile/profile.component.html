@@ -3,11 +3,11 @@
   <div class="row">
       <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
 
-
-      <div  id="profileImageShowDiv">
-         
-        <img id="profileImageShow" src="http://192.168.1.105:8080/zuul-profileStock/photoCode/single/{{uid}}" class="img-thumbnail" alt="No Image">
        
+      <div  id="profileImageShowDiv">
+           <div *ngFor="let p of lastProfilePhoto">
+        <img id="profileImageShow" src="http://192.168.1.105:8080/zuul-profileStock/single/photoCode/{{p.photoCode}}" class="img-thumbnail" alt="No Image">
+        </div>
       </div>
           <!--/--end--profile--image -->
       </div>    
@@ -47,14 +47,15 @@
                   [routerLinkActiveOptions]="{ exact: true }">Friends</a>
               </li>
               <li>
-                <a id="requested-friends-text" [routerLink]="['/photosModal']" [routerLinkActive]="['active']"
-                  [routerLinkActiveOptions]="{ exact: true }">Photos</a>
+                <a id="requested-friends-text" (click)="openModal(showAllPhotos)" href="javascript:void(0)">
+                  Photos
+               </a>
               </li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a id="requested-friends-text" (click)="openModal(template)" href="javascript:void(0)">
+                <a id="requested-friends-text" (click)="openModal(editPhoto)" href="javascript:void(0)">
                    Edit Photo
                 </a>
               </li>
@@ -88,7 +89,7 @@
       <!--/--end--timeline--navbar -->
     <!--/--add image modal -->
     
-      <ng-template #template>
+      <ng-template #editPhoto>
           <div class="modal-header">
               <h4 class="modal-title">Notice and save modal carefully </h4>
              
@@ -107,7 +108,29 @@
         </div>
       </ng-template>
 
+ <!--SHOW PROFILE PHOTO MODAL -->
+ <ng-template #showAllPhotos>
+   <div class="modal-header">
+     <h4 class="modal-title">You Can Delete Any Photo</h4>
+     
+    </div>
+       <div *ngFor="let p of profilePhotos">
+    <div class="modal-body">
+      
+    <img id="showProfileAllPhotos" src="http://192.168.1.105:8080/zuul-profileStock/photoCode/{{p.photoCode}}" class="img-thumbnail" alt="No Image">
+  </div>
+  
+  
+  <button  id="profilePhotoDelete"
+  class="btn btn-primary" (click)="deleteProfilePhotoById(p.id)" (click)="modalRef.hide()">DELETE</button>
+  <button id="profilePhotoCloseBtn" class="btn btn-primary"
+  (click)="modalRef.hide()">CLOSE</button>
+</div>
+  
+    
+</ng-template>
 
+<!--END PROFILE PHOTO MODAL -->
 
       <div class="row">
         <div *ngFor="let p of profilePhotos">

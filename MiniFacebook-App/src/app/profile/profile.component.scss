@@ -22,6 +22,13 @@
   margin-top: 20%;
   
 }
+/*SHOW PROFILE ALL PHOTO*/
+#showProfileAllPhotos{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 /*PROFILE HANDLE BAR*/
 
 
@@ -71,32 +78,25 @@
 h2{
   text-align: center;
 }
-#EDIT{
-width: 50%;
-text-align: center;
 
-}
-#DELETE{
-width: 50%;
-text-align: center;
-}
-#deleteBtn{
+#profilePhotoDelete{
   margin-left: 0%;
-  width: 49%;
+  width: 50%;
   text-align: center;
 }
-#closeBtn{
+#profilePhotoCloseBtn{
   margin-left: 0%;
-  width: 49%;
+  width: 50%;
   text-align: center;
+}
+
+.modal-header{
+  background:lightblue;
 }
 .modal-body{
   text-align: center;
   font-size: 18px;
   background: lightblue;
-}
-.modal-header{
-  background:lightblue;
 }
 .modal-footer{
   background: lightblue;
