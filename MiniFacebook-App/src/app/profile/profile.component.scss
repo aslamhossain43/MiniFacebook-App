@@ -80,32 +80,98 @@ h2{
 }
 
 #profilePhotoDelete{
-  margin-left: 0%;
+  margin-left: 25%;
   width: 50%;
+  margin-right: 25%;
   text-align: center;
-}
-#profilePhotoCloseBtn{
-  margin-left: 0%;
-  width: 50%;
-  text-align: center;
+  background: red;
+  color: white;
 }
 
+
+
+
+
+
+#closeBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+}
 .modal-header{
-  background:lightblue;
+  background:orangered;
 }
 .modal-body{
   text-align: center;
   font-size: 18px;
-  background: lightblue;
-}
-.modal-footer{
-  background: lightblue;
 }
 .modal-title{
   text-align: center;
   color: white;
 }
+/*end modal*/
+
+/*add-ProfilePhotoModal*/
+#addProfilePhotoModalHeader{
+  background: green;
+}
+
 #profileImageSelectButton{
   width: 100%;
   padding: 2%;
+  background: pink;
+}
+#addProfilePhotoModalSaveBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+  background: rgb(241,90,36);
+}
+
+#addProfilePhotoModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+  background: rgb(241,90,36);
+}
+
+#addProfilePhotoModal-footer{
+  background: none;
+}
+/* showProfilePhotoDeleteConfirm modal*/
+
+
+
+#profilePhotoDeleteConfirm-header{
+  background:blue;
+  width: 100%;
+}
+
+#profilePhotoDeleteConfirm-body{
+  align-content: center;
+  width: 100%;
+}
+
+
+#showProfilePhotoDeleteConfirm{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  background: red;
+  color: white;
+}
+#profilePhotoDeleteConfirm{
+  background: orangered;
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+  color: white;
+}
+#profilePhotoCloseBtnConfirm{
+  background: orangered;
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+  color: white;
 }

@@ -5,7 +5,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ProfileGetService } from './profile.photo-get-service';
 import { ProfilePhoto } from './profile.photo';
 import { ProfileDeleteService } from './profile.delete-service';
-import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-profile',
@@ -32,13 +31,14 @@ export class ProfileComponent implements OnInit {
     private profileDeleteService: ProfileDeleteService) {
     this.af.authState.subscribe(auth => {
       this.uid = auth.uid;
-      console.log('UID : ' + this.uid);
+      this.getLastProfilePhotoInformation(this.uid);
     });
   }
 
   ngOnInit(): void {
     this.getProfilePhotosAllInformations(this.uid);
       this.getLastProfilePhotoInformation(this.uid);
+
   }
 
 
@@ -58,7 +58,8 @@ export class ProfileComponent implements OnInit {
       .subscribe(event => {
         this.selectedProfileImageRefreshToWorkImage();
         this.getProfilePhotosAllInformations(this.uid);
-      },
+        this.getLastProfilePhotoInformation(this.uid);
+            },
         (error) => {
 
         }
@@ -74,7 +75,7 @@ export class ProfileComponent implements OnInit {
     this.profileGetService.getProfilePhotosAllInformation(uid)
       .subscribe((profilePhotosAllInformation) => {
         this.profilePhotos = profilePhotosAllInformation;
-
+        this.getLastProfilePhotoInformation(this.uid);
       });
   }
 
@@ -89,13 +90,15 @@ export class ProfileComponent implements OnInit {
 // DELETE SINGLE PROFILE PHOTO BY ID
 deleteProfilePhotoById(id: string){
   this.profileDeleteService.deleteProfilePhotoById(id)
-  .subscribe((response: Response) => {
-    this.getProfilePhotosAllInformations(this.uid);
+  .subscribe(event => {
+   this.getProfilePhotosAllInformations(this.uid);
+   this.getLastProfilePhotoInformation(this.uid);
   },
   (error) => {
-console.log(error);
   });
 }
+
+
 
 }
 

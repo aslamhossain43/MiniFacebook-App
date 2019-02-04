@@ -5,7 +5,7 @@ export class ProfileDeleteService {
     constructor(private http: Http) {}
 
     deleteProfilePhotoById(id: string) {
- return this.http.delete('http://192.168.1.105:8080/zuul-profileStock/delete/profilePhoto/single/', id);
+ return this.http.delete('http://192.168.1.105:8080/zuul-profileStock/delete/profilePhoto/single/' + id);
 
     }
 }
