@@ -2,8 +2,7 @@
 
   <div class="row">
     <!--start--profile--image -->
-    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-
+    
 
       <div id="profileImageShowDiv">
         <div *ngFor="let p of lastProfilePhoto">
@@ -11,11 +10,8 @@
             class="img-thumbnail" alt="No Image">
         </div>
       </div>
-    </div>
+    
     <!--end--profile--image -->
-
-    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-
 
       <!--start--profile--timeline--nav-bar -->
       <nav class="navbar navbar-default" role="navigation">
@@ -42,7 +38,7 @@
                   [routerLinkActiveOptions]="{ exact: true }">Timeline</a>
               </li>
               <li>
-                <a id="message-text" [routerLink]="['/abouteMadal']" [routerLinkActive]="['active']"
+                <a id="message-text" [routerLink]="['/about']" [routerLinkActive]="['active']"
                   [routerLinkActiveOptions]="{ exact: true }">About</a>
               </li>
               <li>
@@ -90,7 +86,7 @@
           </div>
         </div>
       </nav>
-      </div>
+     
       <!--end--timeline--navbar -->
       <!--start-add-profile-image-modal -->
 
@@ -115,7 +111,6 @@
       <!--end-add-profile-image-modal -->
       <!--start-show-all-profile-photo-modal-->
       
-      <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
       <ng-template #showAllPhotos>
         <div class="modal-header">
           <h4 class="modal-title">You Can Delete Any Photo</h4>
@@ -153,7 +148,7 @@
                 </div>
                 
         </ng-template>
-      </div>
+      
       <!--end-show-all-profile-photo-modal-->
 
       <div class="row">

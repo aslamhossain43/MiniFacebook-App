@@ -1,0 +1,37 @@
+<div class="container">
+
+<div class="row">
+ <p id="heading">Workplace</p>
+       <hr>
+        <div id="workplaceForm">
+          <mat-form-field id="workPlaceMatField">
+            <textarea matInput placeholder="Workplace" type="text" autocomplete="off"
+              [(ngModel)]="workplace.workplace" ></textarea>
+           
+        </mat-form-field>
+       
+        <ng-template ngIf="true">
+            <a><button id="workplaceSubmitButton" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+                (mouseenter)="matMenuTrigger.openMenu()">
+                More<span class="caret"></span>
+              </button></a>
+            <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+              <div (mouseleave)="matMenuTrigger.closeMenu()">
+                <button mat-menu-item [routerLink]="['/edit']" [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }">Edit</button>
+                <button mat-menu-item [routerLink]="['/delete']" [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }">Delete</button>
+               
+
+              </div>
+            </mat-menu>
+          </ng-template>
+
+    </div>
+    
+    <a><button  id="workplaceSaveButton" mat-raised-button color="primary">Save </button></a>
+    <a><button  id="workplaceCloseButton" mat-raised-button color="primary">Close </button></a>
+
+     <hr>
+</div>
+</div>

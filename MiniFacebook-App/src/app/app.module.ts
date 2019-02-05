@@ -28,6 +28,7 @@ import { ProfileService } from './profile/profile.upload-service';
 import { HttpModule } from '@angular/http';
 import { ProfileGetService } from './profile/profile.photo-get-service';
 import { ProfileDeleteService } from './profile/profile.delete-service';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ProfileDeleteService } from './profile/profile.delete-service';
     ActiveFriendsComponent,
     AddFriendsComponent,
     MessagesComponent,
-    RequestedFriendsComponent
+    RequestedFriendsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

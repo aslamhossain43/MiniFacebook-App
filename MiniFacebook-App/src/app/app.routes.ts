@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { ActiveFriendsComponent } from './active-friends/active-friends.component';
 import { AddFriendsComponent } from './add-friends/add-friends.component';
 import { RequestedFriendsComponent } from './requested-friends/requested-friends.component';
+import { AboutComponent } from './about/about.component';
 
 export const router: Routes = [
 
@@ -21,7 +22,8 @@ export const router: Routes = [
   { path: 'email', component: EmailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'about', component: AboutComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
