@@ -1,35 +1,49 @@
 
-  /*workplace-form*/
-#workplaceForm{
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  width: 50%;
+  /*workplace-modal*/
+
+  #heading{
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
   }
+  #editWorkplaceModalHeader{
+  text-align: center;
+}
 #workPlaceMatField{
 
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 100%;
+  width: 90%;
   text-align: center;
 }
-#workplaceSubmitButton{
- position:absolute;
-margin-left: 20px;
-margin-top: 23px;
+
+#editWorkplaceModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editWorkplaceModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
 
 }
-#workplaceSaveButton{
-  margin-left: 44%;
-  width: 6%;
+#workplaceEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 5%;
   text-align: center;
 }
-#workplaceCloseButton{
-  margin-left: 1px;
-  width: 6%;
-  text-align: center;}
-#heading{
-  font-size: 24px;
+#workplaceDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
   text-align: center;
 }

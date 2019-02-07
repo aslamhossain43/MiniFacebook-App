@@ -17,7 +17,7 @@ export class ProfileGetService {
 
 // GET LAST PROFILE INFORMATION
 getLastProfilePhotoInformation(uid: string): Observable<ProfilePhoto[]> {
-    return this.http.get('http://192.168.1.105:8080/zuul-profileStock/getprofilephotoinformation/last/' + uid)
+    return this.http.get('http://localhost:8080/zuul-profileStock/getprofilephotoinformation/last/' + uid)
     .pipe(map((response: Response) => response.json()),
     catchError(this.handlError));
     }

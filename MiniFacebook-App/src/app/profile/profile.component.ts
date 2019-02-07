@@ -31,6 +31,7 @@ export class ProfileComponent implements OnInit {
     private profileDeleteService: ProfileDeleteService) {
     this.af.authState.subscribe(auth => {
       this.uid = auth.uid;
+      this.getProfilePhotosAllInformations(this.uid);
       this.getLastProfilePhotoInformation(this.uid);
     });
   }
