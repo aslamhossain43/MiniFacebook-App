@@ -4,26 +4,27 @@
     <!--workplace-start-here-->
     <p id="heading">Workplace</p>
     <hr>
-    <a><button  id="workplaceEditButton" mat-raised-button color="primary"
-      (click)="openModal(editWorkplace)">Edit </button></a>
-
  <!--start-edit-workplace-modal -->
 
  <ng-template #editWorkplace>
   <div id="editWorkplaceModalHeader" class="modal-header">
     <h4 class="modal-title">Notice and save modal carefully </h4>
   </div>
-  <div id="workplaceForm">
-      <mat-form-field id="workPlaceMatField">
-        <textarea matInput placeholder="Workplace" type="text" autocomplete="off"
-          [(ngModel)]="workplace.workPlace"></textarea> 
-    </mat-form-field>
-</div>
+  <div class="modal-body">
 
+    <input type="hidden" [(ngModel)]="workplace.id"> 
+    
+    <div id="workplaceForm">
+      <mat-form-field id="workPlaceMatField">
+        <textarea matInput placeholder="Workplace" type="text" autocomplete="off" [(ngModel)]="workplace.workPlace"></textarea> 
+      </mat-form-field>
+    </div>
+    
     <button id="editWorkplaceModalSaveBtn" class="btn btn-default" [disabled]="!workplace.workPlace"
-     (click)="saveWorkplace()" (click)="workplaceRefresh()" (click)="modalRef.hide()">Save</button>
+    (click)="saveWorkplace()" (click)="workplaceRefresh()" (click)="modalRef.hide()">Save</button>
     <button id="editWorkplaceModalCloseBtn" class="btn btn-default"
     (click)="workplaceRefresh()" (click)="modalRef.hide()">Close</button>                                
+  </div>
 </ng-template>
 <!--end-edit-workplace-modal -->
 <!--start-workplaces-show-->
@@ -31,8 +32,39 @@
 
   <div *ngFor="let w of workplaces">
    <a href="javascript:void(0)" target="_blank">{{w.workPlace}}</a>
+   <!--option template-->
+   <ng-template ngIf="true">
+    <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+        (mouseenter)="matMenuTrigger.openMenu()">
+        Options<span class="caret"></span>
+      </button></a>
+    <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+      <div (mouseleave)="matMenuTrigger.closeMenu()">
+        <button mat-menu-item  (click)="getWorkplaceById(w.id)" (click)="openModal(editWorkplace)" >Edit</button>
+        <button mat-menu-item (click)="getWorkplaceById(w.id)" (click)="openModal(deleteWorkplace)">Delete</button>
+       
+      </div>
+    </mat-menu>
+  </ng-template>
+  <!--DELETE-MODAL-->
+  
+ <ng-template #deleteWorkplace>
+  <div id="editWorkplaceModalHeader" class="modal-header">
+    <h4 class="modal-title">Notice carefully </h4>
+  </div>
+ <div id="deleteWorkplaceModalBody" class="modal-body">
+   <p>Do you want to delete ? {{workplace.workPlace}}</p>
+ </div>
+    <button id="deleteWorkplaceModalBtn" class="btn btn-default"  (click)="deleteWorkplaceById(workplace.id)"
+     (click)="modalRef.hide()">Delete</button>
+    <button id="deleteWorkplaceModalCloseBtn" class="btn btn-default"
+    (click)="workplaceRefresh()" (click)="modalRef.hide()">Close</button>                                
+</ng-template>
   </div>
 </div>
-
+<br>
+<a><button  id="workplaceEditButton" mat-raised-button color="primary"
+  (click)="openModal(editWorkplace)">Add Workplaces </button></a>
+  <hr><hr>
 </div>
 </div>

@@ -12,7 +12,13 @@ saveWorkplace(workplace: Workplace){
     const body = JSON.stringify(workplace);
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
-    return this.http.post('http://localhost:8080/zuul-profileAbout/workplace/add', body, options);
+        if (workplace.id) {
+            return this.http.put('http://localhost:8080/zuul-profileAbout/workplace/update/' + workplace.id, body, options);
+
+        } else {
+
+            return this.http.post('http://localhost:8080/zuul-profileAbout/workplace/add', body, options);
+        }
 
 
 
@@ -26,6 +32,20 @@ getWorkplaceByUID(uid: string): Observable<Workplace[]>{
 
 }
 
+getWorkplaceById(id: string): Observable<Workplace>{
+    return this.http.get('http://localhost:8080/zuul-profileAbout/workplace/single/' + id)
+    .pipe(map((response: Response) => response.json(),
+    catchError(this.handlError)));
+
+
+
+}
+
+
+deleteWorkplaceById(id: string) {
+    return this.http.delete('http://localhost:8080/zuul-profileAbout/workplace/single/delete/' + id);
+
+}
 public handlError(error: Response) {
     return Observable.throw(error);
 }

@@ -3,6 +3,7 @@ import { Workplace } from './about.workplace';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { AboutService } from './about.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-about',
@@ -55,8 +56,20 @@ this.aboutService.getWorkplaceByUID(this.uid)
   this.workplaces = workplace;
 });
 }
+getWorkplaceById(id: string): void {
+  this.aboutService.getWorkplaceById(id)
+  .subscribe((workplace) => {
+    this.workplace = workplace;
+  });
+}
+deleteWorkplaceById(id: string): void {
+  this.aboutService.deleteWorkplaceById(id)
+  .subscribe((response: Response) => {
+ this.getWorkplaceByUID();
+  }, (error) => {
 
-
+  });
+}
 }
 
 
