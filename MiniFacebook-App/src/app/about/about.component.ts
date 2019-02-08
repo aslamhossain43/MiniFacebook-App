@@ -4,6 +4,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { AboutService } from './about.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Response } from '@angular/http';
+import { ProfessionalSkill } from './about.professionalskill';
 
 @Component({
   selector: 'app-about',
@@ -17,12 +18,16 @@ export class AboutComponent implements OnInit {
    // WORKPLACE OBJECTS ARE HERE
 workplace = new Workplace();
 workplaces: Workplace[];
+// PROFESSIONAL SKILLS OBJECTS HERE
+professionalSkill = new ProfessionalSkill();
+professionalSkills: ProfessionalSkill[];
   constructor( /* FOR NGX BOOTSTRAP  MODAL*/
     private modalService: BsModalService, private aboutService: AboutService,
     private af: AngularFireAuth) { 
       this.af.authState.subscribe(auth => {
         this.uid = auth.uid;
         this.getWorkplaceByUID();
+        this.getProfessionalSkillsByUID();
       });
     }
  // FOR NGX BOOTSTRAP  MODAL
@@ -31,7 +36,7 @@ workplaces: Workplace[];
 }
   ngOnInit(): void {
     this.getWorkplaceByUID();
-
+   this.getProfessionalSkillsByUID();
   }
 
 
@@ -70,6 +75,48 @@ deleteWorkplaceById(id: string): void {
 
   });
 }
+
+
+
+
+
+
+// PROFESSIONAL SKILLS ALL METHODS ARE HERE
+saveProfessionalSkills(): void {
+  this.professionalSkill.uid = this.uid;
+    this.aboutService.saveProfessionalSkills(this.professionalSkill)
+    .subscribe(response => {
+  this.getWorkplaceByUID();
+  this.getProfessionalSkillsByUID();
+  
+  }, (error) => {
+  
+  });
+  }
+  professionalSkillsRefresh() {
+    this.professionalSkill.professionalSkill = null;
+  }
+  
+  getProfessionalSkillsByUID(): void {
+  this.aboutService.getProfessionalSkillsByUID(this.uid)
+  .subscribe((professionalSkills) => {
+    this.professionalSkills = professionalSkills;
+  });
+  }
+  getProfessionalSkillsById(id: string): void {
+    this.aboutService.getProfessionalSkillsById(id)
+    .subscribe((professionalSkills) => {
+      this.professionalSkill = professionalSkills;
+    });
+  }
+  deleteProfessionalSkillsById(id: string): void {
+    this.aboutService.deleteProfessionalSkillsById(id)
+    .subscribe((response: Response) => {
+   this.getProfessionalSkillsByUID();
+    }, (error) => {
+  
+    });
+  }
 }
 
 

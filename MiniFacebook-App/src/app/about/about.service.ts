@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { Workplace } from './about.workplace';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { ProfessionalSkill } from './about.professionalskill';
 @Injectable()
 export class AboutService{
     constructor(private http: Http){}
+
 
 // WORKPLACE START HERE
 saveWorkplace(workplace: Workplace){
@@ -46,6 +48,54 @@ deleteWorkplaceById(id: string) {
     return this.http.delete('http://localhost:8080/zuul-profileAbout/workplace/single/delete/' + id);
 
 }
+
+
+
+
+// PROFESSIONAL SKILLS START HERE
+saveProfessionalSkills(professionalSkill: ProfessionalSkill){
+    const body = JSON.stringify(professionalSkill);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        if (professionalSkill.id) {
+            return this.http.put('http://localhost:8080/zuul-profileAbout/professionalSkills/update/'
+             + professionalSkill.id, body, options);
+
+        } else {
+
+            return this.http.post('http://localhost:8080/zuul-profileAbout/professionalSkills/add', body, options);
+        }
+
+
+
+}
+getProfessionalSkillsByUID(uid: string): Observable<ProfessionalSkill[]>{
+    return this.http.get('http://localhost:8080/zuul-profileAbout/professionalSkills/getAll/' + uid)
+    .pipe(map((response: Response) => response.json(),
+    catchError(this.handlError)));
+
+
+
+}
+
+getProfessionalSkillsById(id: string): Observable<ProfessionalSkill>{
+    return this.http.get('http://localhost:8080/zuul-profileAbout/professionalSkills/single/' + id)
+    .pipe(map((response: Response) => response.json(),
+    catchError(this.handlError)));
+
+
+
+}
+
+
+deleteProfessionalSkillsById(id: string) {
+    return this.http.delete('http://localhost:8080/zuul-profileAbout/professionalSkills/single/delete/' + id);
+
+}
+
+
+
+// ERROR HANDLER
 public handlError(error: Response) {
     return Observable.throw(error);
 }

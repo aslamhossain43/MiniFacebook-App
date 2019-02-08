@@ -32,7 +32,7 @@
     <div id="workplaceDiv">
 
       <div *ngFor="let w of workplaces">
-        <a href="javascript:void(0)" target="_blank">{{w.workPlace}}</a>
+        <a href="javascript:void(0)" target="_blank">[{{w.workPlace}}]</a>
         <!--option template-->
         <ng-template ngIf="true">
           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
@@ -58,9 +58,9 @@
             <p>Do you want to delete ? {{workplace.workPlace}}</p>
           </div>
           <button id="deleteWorkplaceModalBtn" class="btn btn-default" (click)="deleteWorkplaceById(workplace.id)"
-            (click)="modalRef.hide()">Delete</button>
+            (click)="modalRef.hide()">Yes</button>
           <button id="deleteWorkplaceModalCloseBtn" class="btn btn-default" (click)="workplaceRefresh()"
-            (click)="modalRef.hide()">Close</button>
+            (click)="modalRef.hide()">No</button>
         </ng-template>
       </div>
     </div>
@@ -69,5 +69,76 @@
         Workplaces </button></a>
     <hr>
     <hr>
+
+
+
+     <!--professionalskill-start-here-->
+     <p id="heading">Professional Skills</p>
+     <hr>
+     <!--start-edit-workplace-modal -->
+ 
+     <ng-template #editProfessionalSkills>
+       <div id="editProfessionalSkillsModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="professionalSkill.id">
+ 
+         <div id="professionalSkillsForm">
+           <mat-form-field id="professionalSkillsMatField">
+             <textarea matInput placeholder="ProfessionalSkills" type="text" autocomplete="off"
+               [(ngModel)]="professionalSkill.professionalSkill"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editProfessionalSkillsModalSaveBtn" class="btn btn-default" [disabled]="!professionalSkill.professionalSkill"
+           (click)="saveProfessionalSkills()" (click)="professionalSkillsRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editProfessionalSkillsModalCloseBtn" class="btn btn-default" (click)="professionalSkillsRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-ProfessionalSkills-modal -->
+     <!--start-ProfessionalSkills-show-->
+     <div id="professionalSkillsDiv">
+ 
+       <div *ngFor="let p of professionalSkills">
+         <a href="javascript:void(0)" target="_blank">[{{p.professionalSkill}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getProfessionalSkillsById(p.id)" (click)="openModal(editProfessionalSkills)">Edit</button>
+               <button mat-menu-item (click)="getProfessionalSkillsById(p.id)"
+                 (click)="openModal(deleteProfessionalSkills)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteProfessionalSkills>
+           <div id="editProfessionalSkillsModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteProfessionalSkillsModalBody" class="modal-body">
+             <p>Do you want to delete ? {{professionalSkill.professionalSkill}}</p>
+           </div>
+           <button id="deleteProfessionalSkillsModalBtn" class="btn btn-default" (click)="deleteProfessionalSkillsById(professionalSkill.id)"
+             (click)="modalRef.hide()">Yes</button>
+           <button id="deleteProfessionalSkillsModalCloseBtn" class="btn btn-default" (click)="ProfessionalSkillsRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <a><button id="professionalSkillsEditButton" mat-raised-button color="primary" (click)="openModal(editProfessionalSkills)">Add
+      Professional Skills </button></a>
+     <hr>
+     <hr>
   </div>
 </div>
