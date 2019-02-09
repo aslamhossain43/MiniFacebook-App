@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row">
-    <!--workplace-start-here-->
+    <!----------------------------------workplace-start-here------------------------------->
     <p id="heading">Workplace</p>
     <hr>
     <!--start-edit-workplace-modal -->
@@ -65,14 +65,14 @@
       </div>
     </div>
     <br>
-    <a><button id="workplaceEditButton" mat-raised-button color="primary" (click)="openModal(editWorkplace)">Add
-        Workplaces </button></a>
+    <button id="workplaceEditButton" mat-raised-button (click)="openModal(editWorkplace)">Add
+        Workplaces </button>
     <hr>
     <hr>
 
 
 
-     <!--professionalskill-start-here-->
+     <!--------------------------professionalskill-start-here--------------------------->
      <p id="heading">Professional Skills</p>
      <hr>
      <!--start-edit-college-modal -->
@@ -93,8 +93,8 @@
          </div>
  
          <button id="editProfessionalSkillsModalSaveBtn" class="btn btn-default" [disabled]="!professionalSkill.professionalSkill"
-           (click)="saveProfessionalSkills()" (click)="professionalSkillsRefresh()" (click)="modalRef.hide()">Save</button>
-         <button id="editProfessionalSkillsModalCloseBtn" class="btn btn-default" (click)="professionalSkillsRefresh()"
+           (click)="saveProfessionalSkills()" (click)="ProfessionalSkillsRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editProfessionalSkillsModalCloseBtn" class="btn btn-default" (click)="ProfessionalSkillsRefresh()"
            (click)="modalRef.hide()">Close</button>
        </div>
      </ng-template>
@@ -136,15 +136,15 @@
        </div>
      </div>
      <br>
-     <a><button id="professionalSkillsEditButton" mat-raised-button color="primary" (click)="openModal(editProfessionalSkills)">Add
-      Professional Skills </button></a>
+     <button id="professionalSkillsEditButton" mat-raised-button  (click)="openModal(editProfessionalSkills)">Add
+      Professional Skills </button>
      <hr>
      <hr>
 
 
 
 
-     <!--college-start-here-->
+     <!---------------------------college-start-here------------------------------------>
      <p id="heading">College</p>
      <hr>
      <!--start-edit-college-modal -->
@@ -208,12 +208,81 @@
        </div>
      </div>
      <br>
-     <a><button id="collegeEditButton" mat-raised-button color="primary" (click)="openModal(editCollege)">Add
-      College </button></a>
+     <button id="collegeEditButton" mat-raised-button  (click)="openModal(editCollege)">Add
+      College </button>
      <hr>
      <hr>
 
 
+
+     <!---------------------------high-school-start-here------------------------------------>
+     <p id="heading">High School</p>
+     <hr>
+     <!--start-edit-high-school-modal -->
+ 
+     <ng-template #editHighSchool>
+       <div id="editHighSchoolModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="highSchool.id">
+ 
+         <div id="highSchoolForm">
+           <mat-form-field id="highSchoolMatField">
+             <textarea matInput placeholder="High School" type="text" autocomplete="off"
+               [(ngModel)]="highSchool.highSchool"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editHighSchoolModalSaveBtn" class="btn btn-default" [disabled]="!highSchool.highSchool"
+           (click)="saveHighSchool()" (click)="HighSchoolRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editHighSchoolModalCloseBtn" class="btn btn-default" (click)="HighSchoolRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-HighSchool-modal -->
+     <!--start-HighSchool-show-->
+     <div id="highSchoolDiv">
+ 
+       <div *ngFor="let h of highSchools">
+         <a href="javascript:void(0)" target="_blank">[{{h.highSchool}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getHighSchoolById(h.id)" (click)="openModal(editHighSchool)">Edit</button>
+               <button mat-menu-item (click)="getHighSchoolById(h.id)"
+                 (click)="openModal(deleteHighSchool)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteHighSchool>
+           <div id="editHighSchoolModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteHighSchoolModalBody" class="modal-body">
+             <p>Do you want to delete ? {{highSchool.highSchool}}</p>
+           </div>
+           <button id="deleteHighSchoolModalBtn" class="btn btn-default" (click)="deleteHighSchoolById(highSchool.id)"
+           (click)="HighSchoolRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteHighSchoolModalCloseBtn" class="btn btn-default" (click)="HighSchoolRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="highSchoolEditButton" mat-raised-button  (click)="openModal(editHighSchool)">Add
+      High School </button>
+     <hr>
+     <hr>
 
 
 

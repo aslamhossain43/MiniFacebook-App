@@ -3,7 +3,8 @@
 
   #heading{
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 20px;
+    color: darkblue;
     text-align: center;
   }
   #optionsBtn{
@@ -68,11 +69,6 @@
 
   /*Professional-Skills-modal*/
 
-  #heading{
-    margin-top: 20px;
-    font-size: 16px;
-    text-align: center;
-  }
   #optionsBtn{
     margin-left: 15px;
   }
@@ -135,11 +131,6 @@
 
   /*College-modal*/
 
-  #heading{
-    margin-top: 20px;
-    font-size: 16px;
-    text-align: center;
-  }
   #optionsBtn{
     margin-left: 15px;
   }
@@ -192,6 +183,67 @@
   text-align: center;
 }
 #collegeDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*HighSchool-modal*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editHighSchoolModalHeader{
+  text-align: center;
+}
+#highSchoolMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editHighSchoolModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editHighSchoolModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteHighSchoolModalBody{
+  text-align: center;
+}
+#deleteHighSchoolModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteHighSchoolModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#highSchoolEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#highSchoolDiv{
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;

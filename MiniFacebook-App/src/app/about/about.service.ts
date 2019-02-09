@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { ProfessionalSkill } from './about.professionalskill';
 import { College } from './about.college';
+import { HighSchool } from './about.highschool';
 @Injectable()
 export class AboutService{
     constructor(private http: Http){}
@@ -97,7 +98,7 @@ deleteProfessionalSkillsById(id: string) {
 
 // ------------------------------------------------------------------------------------------
 
-// COLLEGE SKILLS START HERE
+// COLLEGE  START HERE
 saveCollege(college: College){
     const body = JSON.stringify(college);
         const headers = new Headers({ 'Content-Type': 'application/json' });
@@ -139,6 +140,50 @@ deleteCollegeById(id: string) {
 
 }
 
+
+// ------------------------------------------------------------------------------------------
+
+// HIGH SCHOOL START HERE
+saveHighSchool(highSchool: HighSchool){
+    const body = JSON.stringify(highSchool);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        if (highSchool.id) {
+            return this.http.put('http://localhost:8080/zuul-profileAbout/highSchool/update/'
+             + highSchool.id, body, options);
+
+        } else {
+
+            return this.http.post('http://localhost:8080/zuul-profileAbout/highSchool/add', body, options);
+        }
+
+
+
+}
+// -----------------------------
+getHighSchoolByUID(uid: string): Observable<HighSchool[]>{
+    return this.http.get('http://localhost:8080/zuul-profileAbout/highSchool/getAll/' + uid)
+    .pipe(map((response: Response) => response.json(),
+    catchError(this.handlError)));
+
+
+
+}
+// ------------------------------
+getHighSchoolById(id: string): Observable<HighSchool>{
+    return this.http.get('http://localhost:8080/zuul-profileAbout/highSchool/single/' + id)
+    .pipe(map((response: Response) => response.json(),
+    catchError(this.handlError)));
+
+
+
+}
+
+// ---------------------------------
+deleteHighSchoolById(id: string) {
+    return this.http.delete('http://localhost:8080/zuul-profileAbout/highSchool/single/delete/' + id);
+
+}
 
 // ----------------------------------------------------------------------------------------
 // ERROR HANDLER

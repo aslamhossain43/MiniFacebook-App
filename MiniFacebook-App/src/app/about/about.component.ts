@@ -6,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Response } from '@angular/http';
 import { ProfessionalSkill } from './about.professionalskill';
 import { College } from './about.college';
+import { HighSchool } from './about.highschool';
 
 @Component({
   selector: 'app-about',
@@ -26,6 +27,9 @@ professionalSkills: ProfessionalSkill[];
 college = new College();
 colleges: College[];
 // ------------------------------------------------------------------------------------
+highSchool = new HighSchool();
+highSchools: HighSchool[];
+// ------------------------------------------------------------------------------------
   constructor( /* FOR NGX BOOTSTRAP  MODAL*/
     private modalService: BsModalService, private aboutService: AboutService,
     private af: AngularFireAuth) { 
@@ -34,6 +38,7 @@ colleges: College[];
         this.getWorkplaceByUID();
         this.getProfessionalSkillsByUID();
         this.getCollegeByUID();
+        this.getHighSchoolByUID();
       });
     }
     // ----------------------------------------------------------------------------------
@@ -46,6 +51,7 @@ colleges: College[];
     this.getWorkplaceByUID();
    this.getProfessionalSkillsByUID();
    this.getCollegeByUID();
+   this.getHighSchoolByUID();
   }
 
 // ---------------------------------------------------------------------------------------
@@ -57,6 +63,7 @@ this.workplace.uid = this.uid;
 this.getWorkplaceByUID();
 this.getProfessionalSkillsByUID();
 this.getCollegeByUID();
+this.getHighSchoolByUID();
 }, (error) => {
 
 });
@@ -83,7 +90,10 @@ getWorkplaceById(id: string): void {
 deleteWorkplaceById(id: string): void {
   this.aboutService.deleteWorkplaceById(id)
   .subscribe((response: Response) => {
- this.getWorkplaceByUID();
+    this.getWorkplaceByUID();
+    this.getProfessionalSkillsByUID();
+    this.getCollegeByUID();
+    this.getHighSchoolByUID();
   }, (error) => {
 
   });
@@ -102,13 +112,13 @@ saveProfessionalSkills(): void {
   this.getWorkplaceByUID();
   this.getProfessionalSkillsByUID();
 this.getCollegeByUID();
-  
+  this.getHighSchoolByUID();
   }, (error) => {
   
   });
   }
   // -----------------------------
-  professionalSkillsRefresh() {
+  ProfessionalSkillsRefresh() {
     this.professionalSkill.professionalSkill = null;
   }
 // -------------------------------
@@ -129,14 +139,17 @@ this.getCollegeByUID();
   deleteProfessionalSkillsById(id: string): void {
     this.aboutService.deleteProfessionalSkillsById(id)
     .subscribe((response: Response) => {
-   this.getProfessionalSkillsByUID();
+      this.getWorkplaceByUID();
+      this.getProfessionalSkillsByUID();
+      this.getCollegeByUID();
+      this.getHighSchoolByUID();
     }, (error) => {
   
     });
   }
   // -----------------------------------------------------------------------------------------
 
-// CPLLEGE ALL METHODS ARE HERE
+// COLLEGE ALL METHODS ARE HERE
 saveCollege(): void {
   this.college.uid = this.uid;
     this.aboutService.saveCollege(this.college)
@@ -144,6 +157,7 @@ saveCollege(): void {
   this.getWorkplaceByUID();
   this.getProfessionalSkillsByUID();
   this.getCollegeByUID();
+  this.getHighSchoolByUID();
   }, (error) => {
   
   });
@@ -170,11 +184,64 @@ saveCollege(): void {
   deleteCollegeById(id: string): void {
     this.aboutService.deleteCollegeById(id)
     .subscribe((response: Response) => {
-   this.getCollegeByUID();
+      this.getWorkplaceByUID();
+      this.getProfessionalSkillsByUID();
+      this.getCollegeByUID();
+      this.getHighSchoolByUID();
     }, (error) => {
   
     });
   }
+
+
+
+ // -----------------------------------------------------------------------------------------
+
+// HIGH SCHOOL ALL METHODS ARE HERE
+saveHighSchool(): void {
+  this.highSchool.uid = this.uid;
+    this.aboutService.saveHighSchool(this.highSchool)
+    .subscribe(response => {
+  this.getWorkplaceByUID();
+  this.getProfessionalSkillsByUID();
+  this.getCollegeByUID();
+  this.getHighSchoolByUID();
+  }, (error) => {
+  
+  });
+  }
+  // -----------------------------
+  HighSchoolRefresh() {
+    this.highSchool.highSchool = null;
+  }
+// -------------------------------
+  getHighSchoolByUID(): void {
+  this.aboutService.getHighSchoolByUID(this.uid)
+  .subscribe((highSchool) => {
+    this.highSchools = highSchool;
+  });
+  }
+  // -------------------------------
+  getHighSchoolById(id: string): void {
+    this.aboutService.getHighSchoolById(id)
+    .subscribe((highSchool) => {
+      this.highSchool = highSchool;
+    });
+  }
+  // --------------------------------
+  deleteHighSchoolById(id: string): void {
+    this.aboutService.deleteHighSchoolById(id)
+    .subscribe((response: Response) => {
+      this.getWorkplaceByUID();
+      this.getProfessionalSkillsByUID();
+      this.getCollegeByUID();
+      this.getHighSchoolByUID();
+    }, (error) => {
+  
+    });
+  }
+
+
 
 }
 
