@@ -58,7 +58,7 @@
             <p>Do you want to delete ? {{workplace.workPlace}}</p>
           </div>
           <button id="deleteWorkplaceModalBtn" class="btn btn-default" (click)="deleteWorkplaceById(workplace.id)"
-            (click)="modalRef.hide()">Yes</button>
+          (click)="workplaceRefresh()"  (click)="modalRef.hide()">Yes</button>
           <button id="deleteWorkplaceModalCloseBtn" class="btn btn-default" (click)="workplaceRefresh()"
             (click)="modalRef.hide()">No</button>
         </ng-template>
@@ -75,7 +75,7 @@
      <!--professionalskill-start-here-->
      <p id="heading">Professional Skills</p>
      <hr>
-     <!--start-edit-workplace-modal -->
+     <!--start-edit-college-modal -->
  
      <ng-template #editProfessionalSkills>
        <div id="editProfessionalSkillsModalHeader" class="modal-header">
@@ -129,7 +129,7 @@
              <p>Do you want to delete ? {{professionalSkill.professionalSkill}}</p>
            </div>
            <button id="deleteProfessionalSkillsModalBtn" class="btn btn-default" (click)="deleteProfessionalSkillsById(professionalSkill.id)"
-             (click)="modalRef.hide()">Yes</button>
+           (click)="ProfessionalSkillsRefresh()"  (click)="modalRef.hide()">Yes</button>
            <button id="deleteProfessionalSkillsModalCloseBtn" class="btn btn-default" (click)="ProfessionalSkillsRefresh()"
              (click)="modalRef.hide()">No</button>
          </ng-template>
@@ -140,5 +140,90 @@
       Professional Skills </button></a>
      <hr>
      <hr>
+
+
+
+
+     <!--college-start-here-->
+     <p id="heading">College</p>
+     <hr>
+     <!--start-edit-college-modal -->
+ 
+     <ng-template #editCollege>
+       <div id="editCollegeModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="college.id">
+ 
+         <div id="collegeForm">
+           <mat-form-field id="collegeMatField">
+             <textarea matInput placeholder="College" type="text" autocomplete="off"
+               [(ngModel)]="college.college"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editCollegeModalSaveBtn" class="btn btn-default" [disabled]="!college.college"
+           (click)="saveCollege()" (click)="CollegeRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editCollegeModalCloseBtn" class="btn btn-default" (click)="CollegeRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-College-modal -->
+     <!--start-College-show-->
+     <div id="collegeDiv">
+ 
+       <div *ngFor="let c of colleges">
+         <a href="javascript:void(0)" target="_blank">[{{c.college}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getCollegeById(c.id)" (click)="openModal(editCollege)">Edit</button>
+               <button mat-menu-item (click)="getCollegeById(c.id)"
+                 (click)="openModal(deleteCollege)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteCollege>
+           <div id="editCollegeModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteCollegeModalBody" class="modal-body">
+             <p>Do you want to delete ? {{college.college}}</p>
+           </div>
+           <button id="deleteCollegeModalBtn" class="btn btn-default" (click)="deleteCollegeById(college.id)"
+           (click)="CollegeRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteCollegeModalCloseBtn" class="btn btn-default" (click)="CollegeRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <a><button id="collegeEditButton" mat-raised-button color="primary" (click)="openModal(editCollege)">Add
+      College </button></a>
+     <hr>
+     <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
 </div>
