@@ -1,4 +1,4 @@
-export class FavoriteQoutes {
+export class FavoriteQuotes {
     id: string;
     uid: string;
     favoriteQuote: string;

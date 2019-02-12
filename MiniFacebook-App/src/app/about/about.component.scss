@@ -1,5 +1,5 @@
 
-  /*workplace-modal*/
+  /*-------------------------------workplace-modal-----------------------------------------*/
 
   #heading{
     margin-top: 20px;
@@ -67,7 +67,7 @@
   text-align: center;
 }
 
-  /*Professional-Skills-modal*/
+  /*------------------------------Professional-Skills-modal----------------------------------*/
 
   #optionsBtn{
     margin-left: 15px;
@@ -129,7 +129,7 @@
   text-align: center;
 }
 
-  /*College-modal*/
+  /*-------------------------------------College-modal---------------------------------------*/
 
   #optionsBtn{
     margin-left: 15px;
@@ -190,7 +190,7 @@
   width: auto;
   text-align: center;
 }
-  /*HighSchool-modal*/
+  /*------------------------------------HighSchool-modal-----------------------------------*/
 
   #optionsBtn{
     margin-left: 15px;
@@ -244,6 +244,616 @@
   text-align: center;
 }
 #highSchoolDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*------------------------------CurrentCity-modal-----------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editCurrentCityModalHeader{
+  text-align: center;
+}
+#currentCityMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editCurrentCityModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editCurrentCityModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteCurrentCityModalBody{
+  text-align: center;
+}
+#deleteCurrentCityModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteCurrentCityModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#currentCityEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#currentCityDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*--------------------------------HomeTown-modal-------------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editHomeTownModalHeader{
+  text-align: center;
+}
+#homeTownMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editHomeTownModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editHomeTownModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteHomeTownModalBody{
+  text-align: center;
+}
+#deleteHomeTownModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteHomeTownModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#homeTownEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#homeTownDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*----------------------------------CurrentCity-modal-------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editCurrentCityModalHeader{
+  text-align: center;
+}
+#currentCityMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editCurrentCityModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editCurrentCityModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteCurrentCityModalBody{
+  text-align: center;
+}
+#deleteCurrentCityModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteCurrentCityModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#currentCityEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#currentCityDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*---------------------------OtherPlacesLived-modal----------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editOtherPlacesLivedModalHeader{
+  text-align: center;
+}
+#otherPlacesLivedMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editOtherPlacesLivedModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editOtherPlacesLivedModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteOtherPlacesLivedModalBody{
+  text-align: center;
+}
+#deleteOtherPlacesLivedModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteOtherPlacesLivedModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#otherPlacesLivedEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#otherPlacesLivedDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*--------------------------------ContactInformation--------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editContactInformationModalHeader{
+  text-align: center;
+}
+#contactInformationMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editContactInformationModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editContactInformationModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteContactInformationModalBody{
+  text-align: center;
+}
+#deleteContactInformationModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteContactInformationModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#contactInformationEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#contactInformationDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*-------------------------WebSiteAndSocialLink-----------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editWebSiteAndSocialLinkModalHeader{
+  text-align: center;
+}
+#webSiteAndSocialLinkMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editWebSiteAndSocialLinkModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editWebSiteAndSocialLinkModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteWebSiteAndSocialLinkModalBody{
+  text-align: center;
+}
+#deleteWebSiteAndSocialLinkModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteWebSiteAndSocialLinkModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#webSiteAndSocialLinkEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#webSiteAndSocialLinkDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*-------------------------BasicInformation----------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editBasicInformationModalHeader{
+  text-align: center;
+}
+#basicInformationMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editBasicInformationModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editBasicInformationModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteBasicInformationModalBody{
+  text-align: center;
+}
+#deleteBasicInformationModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteBasicInformationModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#basicInformationEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#basicInformationDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*-------------------------RelationShip----------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editRelationShipModalHeader{
+  text-align: center;
+}
+#relationShipMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editRelationShipModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editRelationShipModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteRelationShipModalBody{
+  text-align: center;
+}
+#deleteRelationShipModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteRelationShipModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#relationShipEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#relationShipDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*-------------------------FamilyMembers----------------------------------------*/
+
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editFamilyMembersModalHeader{
+  text-align: center;
+}
+#familyMembersMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editFamilyMembersModalSaveBtn{
+  
+    margin-left: 0%;
+    width: 50%;
+    text-align: center;
+  
+}
+#editFamilyMembersModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteFamilyMembersModalBody{
+  text-align: center;
+}
+#deleteFamilyMembersModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteFamilyMembersModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#familyMembersEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#familyMembersDiv{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+  /*-------------------------FavoriteQuotes----------------------------------------*/
+ 
+  #optionsBtn{
+    margin-left: 15px;
+  }
+  #editFavoriteQuotesModalHeader{
+  text-align: center;
+}
+#favoriteQuotesMatField{
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  text-align: center;
+}
+
+#editFavoriteQuotesModalSaveBtn{
+  
+    margin-left: 0%;
+     width: 50%;
+    text-align: center;
+  
+}
+#editFavoriteQuotesModalCloseBtn{
+  
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteFavoriteQuotesModalBody{
+  text-align: center;
+}
+#deleteFavoriteQuotesModalCloseBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#deleteFavoriteQuotesModalBtn{
+  margin-left: 0%;
+  width: 50%;
+  text-align: center;
+
+}
+#favoriteQuotesEditButton{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+#favoriteQuotesDiv{
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;

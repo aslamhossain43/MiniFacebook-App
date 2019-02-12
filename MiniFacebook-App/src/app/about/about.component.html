@@ -287,11 +287,637 @@
 
 
 
+     <!---------------------------current-city-start-here------------------------------------>
+     <p id="heading">Current City</p>
+     <hr>
+     <!--start-edit-current-city-modal -->
+ 
+     <ng-template #editCurrentCity>
+       <div id="editCurrentCityModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="currentCity.id">
+ 
+         <div id="currentCityForm">
+           <mat-form-field id="currentCityMatField">
+             <textarea matInput placeholder="Current City" type="text" autocomplete="off"
+               [(ngModel)]="currentCity.currentCity"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editCurrentCityModalSaveBtn" class="btn btn-default" [disabled]="!currentCity.currentCity"
+           (click)="saveCurrentCity()" (click)="CurrentCityRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editCurrentCityModalCloseBtn" class="btn btn-default" (click)="CurrentCityRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-CurrentCity-modal -->
+     <!--start-CurrentCity-show-->
+     <div id="currentCityDiv">
+ 
+       <div *ngFor="let h of currentCities">
+         <a href="javascript:void(0)" target="_blank">[{{h.currentCity}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getCurrentCityById(h.id)" (click)="openModal(editCurrentCity)">Edit</button>
+               <button mat-menu-item (click)="getCurrentCityById(h.id)"
+                 (click)="openModal(deleteCurrentCity)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteCurrentCity>
+           <div id="editCurrentCityModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteCurrentCityModalBody" class="modal-body">
+             <p>Do you want to delete ? {{currentCity.currentCity}}</p>
+           </div>
+           <button id="deleteCurrentCityModalBtn" class="btn btn-default" (click)="deleteCurrentCityById(currentCity.id)"
+           (click)="CurrentCityRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteCurrentCityModalCloseBtn" class="btn btn-default" (click)="CurrentCityRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="currentCityEditButton" mat-raised-button  (click)="openModal(editCurrentCity)">Add
+      Current City </button>
+     <hr>
+     <hr>
+
+
+
+     <!---------------------------home-town-start-here------------------------------------>
+     <p id="heading">Home Town</p>
+     <hr>
+     <!--start-edit-home-town-modal -->
+ 
+     <ng-template #editHomeTown>
+       <div id="editHomeTownModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="homeTown.id">
+ 
+         <div id="homeTownForm">
+           <mat-form-field id="homeTownMatField">
+             <textarea matInput placeholder="Home Town" type="text" autocomplete="off"
+               [(ngModel)]="homeTown.homeTown"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editHomeTownModalSaveBtn" class="btn btn-default" [disabled]="!homeTown.homeTown"
+           (click)="saveHomeTown()" (click)="HomeTownRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editHomeTownModalCloseBtn" class="btn btn-default" (click)="HomeTownRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-HomeTown-modal -->
+     <!--start-HomeTown-show-->
+     <div id="homeTownDiv">
+ 
+       <div *ngFor="let h of homeTowns">
+         <a href="javascript:void(0)" target="_blank">[{{h.homeTown}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getHomeTownById(h.id)" (click)="openModal(editHomeTown)">Edit</button>
+               <button mat-menu-item (click)="getHomeTownById(h.id)"
+                 (click)="openModal(deleteHomeTown)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteHomeTown>
+           <div id="editHomeTownModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteHomeTownModalBody" class="modal-body">
+             <p>Do you want to delete ? {{homeTown.homeTown}}</p>
+           </div>
+           <button id="deleteHomeTownModalBtn" class="btn btn-default" (click)="deleteHomeTownById(homeTown.id)"
+           (click)="HomeTownRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteHomeTownModalCloseBtn" class="btn btn-default" (click)="HomeTownRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="homeTownEditButton" mat-raised-button  (click)="openModal(editHomeTown)">Add
+      Home Town </button>
+     <hr>
+     <hr>
 
 
 
 
+     <!---------------------------other-places-lived-start-here------------------------------------>
+     <p id="heading">Other Places Lived</p>
+     <hr>
+     <!--start-edit-other-places-lived-modal -->
+ 
+     <ng-template #editOtherPlacesLived>
+       <div id="editOtherPlacesLivedModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="otherPlacesLived.id">
+ 
+         <div id="OtherPlacesLivedForm">
+           <mat-form-field id="OtherPlacesLivedMatField">
+             <textarea matInput placeholder="Other Places Lived" type="text" autocomplete="off"
+               [(ngModel)]="otherPlacesLived.otherPlacesLived"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editOtherPlacesLivedModalSaveBtn" class="btn btn-default" [disabled]="!otherPlacesLived.otherPlacesLived"
+           (click)="saveOtherPlacesLived()" (click)="OtherPlacesLivedRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editOtherPlacesLivedModalCloseBtn" class="btn btn-default" (click)="OtherPlacesLivedRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-OtherPlacesLived-modal -->
+     <!--start-OtherPlacesLived-show-->
+     <div id="otherPlacesLivedDiv">
+ 
+       <div *ngFor="let h of otherPlacesLiveds">
+         <a href="javascript:void(0)" target="_blank">[{{h.otherPlacesLived}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getOtherPlacesLivedById(h.id)" (click)="openModal(editOtherPlacesLived)">Edit</button>
+               <button mat-menu-item (click)="getOtherPlacesLivedById(h.id)"
+                 (click)="openModal(deleteOtherPlacesLived)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteOtherPlacesLived>
+           <div id="editOtherPlacesLivedModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteOtherPlacesLivedModalBody" class="modal-body">
+             <p>Do you want to delete ? {{otherPlacesLived.otherPlacesLived}}</p>
+           </div>
+           <button id="deleteOtherPlacesLivedModalBtn" class="btn btn-default" (click)="deleteOtherPlacesLivedById(homeTown.id)"
+           (click)="OtherPlacesLivedRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteOtherPlacesLivedModalCloseBtn" class="btn btn-default" (click)="OtherPlacesLivedRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="otherPlacesLivedEditButton" mat-raised-button  (click)="openModal(editOtherPlacesLived)">Add
+      Other Places Lived </button>
+     <hr>
+     <hr>
 
+
+
+
+     <!---------------------------contact-information-start-here------------------------------------>
+     <p id="heading">Contact Information</p>
+     <hr>
+     <!--start-edit-contact-information-modal -->
+ 
+     <ng-template #editContactInformation>
+       <div id="editContactInformationModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="contactInformation.id">
+ 
+         <div id="ContactInformationForm">
+           <mat-form-field id="ContactInformationMatField">
+             <textarea matInput placeholder="Contact Information" type="text" autocomplete="off"
+               [(ngModel)]="contactInformation.contactInformation"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editContactInformationModalSaveBtn" class="btn btn-default" [disabled]="!contactInformation.contactInformation"
+           (click)="saveContactInformation()" (click)="ContactInformationRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editContactInformationModalCloseBtn" class="btn btn-default" (click)="ContactInformationRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-ContactInformation-modal -->
+     <!--start-ContactInformation-show-->
+     <div id="contactInformationDiv">
+ 
+       <div *ngFor="let h of contactInformations">
+         <a href="javascript:void(0)" target="_blank">[{{h.contactInformation}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getContactInformationById(h.id)" (click)="openModal(editContactInformation)">Edit</button>
+               <button mat-menu-item (click)="getContactInformationById(h.id)"
+                 (click)="openModal(deleteContactInformation)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteContactInformation>
+           <div id="editContactInformationModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteContactInformationModalBody" class="modal-body">
+             <p>Do you want to delete ? {{contactInformation.contactInformation}}</p>
+           </div>
+           <button id="deleteContactInformationModalBtn" class="btn btn-default" (click)="deleteContactInformationById(contactInformation.id)"
+           (click)="ContactInformationRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteContactInformationModalCloseBtn" class="btn btn-default" (click)="ContactInformationRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="contactInformationEditButton" mat-raised-button  (click)="openModal(editContactInformation)">Add
+      Contact Information </button>
+     <hr>
+     <hr>
+
+
+
+     <!---------------------------WebSiteAndSocialLink-start-here------------------------------------>
+     <p id="heading">WebSite And Social Link</p>
+     <hr>
+     <!--start-edit-WebSiteAndSocialLink-modal -->
+ 
+     <ng-template #editWebSiteAndSocialLink>
+       <div id="editWebSiteAndSocialLinkModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="webSiteAndSocialLink.id">
+ 
+         <div id="webSiteAndSocialLinkForm">
+           <mat-form-field id="webSiteAndSocialLinkMatField">
+             <textarea matInput placeholder="WebSite And Social Link" type="text" autocomplete="off"
+               [(ngModel)]="webSiteAndSocialLink.webSiteAndSocialLink"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editWebSiteAndSocialLinkModalSaveBtn" class="btn btn-default" [disabled]="!webSiteAndSocialLink.webSiteAndSocialLink"
+           (click)="saveWebSiteAndSocialLink()" (click)="WebSiteAndSocialLinkRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editWebSiteAndSocialLinkModalCloseBtn" class="btn btn-default" (click)="WebSiteAndSocialLinkRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-WebSiteAndSocialLink-modal -->
+     <!--start-WebSiteAndSocialLink-show-->
+     <div id="webSiteAndSocialLinkDiv">
+ 
+       <div *ngFor="let h of webSiteAndSocialLinks">
+         <a href="javascript:void(0)" target="_blank">[{{h.webSiteAndSocialLink}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getWebSiteAndSocialLinkById(h.id)" (click)="openModal(editWebSiteAndSocialLink)">Edit</button>
+               <button mat-menu-item (click)="getWebSiteAndSocialLinkById(h.id)"
+                 (click)="openModal(deleteWebSiteAndSocialLink)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteWebSiteAndSocialLink>
+           <div id="editWebSiteAndSocialLinkModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteWebSiteAndSocialLinkModalBody" class="modal-body">
+             <p>Do you want to delete ? {{webSiteAndSocialLink.webSiteAndSocialLink}}</p>
+           </div>
+           <button id="deleteWebSiteAndSocialLinkModalBtn" class="btn btn-default" (click)="deleteContactInformationById(webSiteAndSocialLink.id)"
+           (click)="WebSiteAndSocialLinkRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteWebSiteAndSocialLinkModalCloseBtn" class="btn btn-default" (click)="WebSiteAndSocialLinkRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="webSiteAndSocialLinkEditButton" mat-raised-button  (click)="openModal(editWebSiteAndSocialLink)">Add
+      WebSite And Social Link </button>
+     <hr>
+     <hr>
+
+     <!---------------------------BasicInformation-start-here------------------------------------>
+     <p id="heading">WebSite And Social Link</p>
+     <hr>
+     <!--start-edit-BasicInformation-modal -->
+ 
+     <ng-template #editBasicInformation>
+       <div id="editBasicInformationModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="basicInformation.id">
+ 
+         <div id="basicInformationForm">
+           <mat-form-field id="basicInformationMatField">
+             <textarea matInput placeholder="Basic Information" type="text" autocomplete="off"
+               [(ngModel)]="basicInformation.basicInformation"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editBasicInformationModalSaveBtn" class="btn btn-default" [disabled]="!basicInformation.basicInformation"
+           (click)="saveBasicInformation()" (click)="BasicInformationRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editBasicInformationModalCloseBtn" class="btn btn-default" (click)="BasicInformationRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-BasicInformation-modal -->
+     <!--start-BasicInformation-show-->
+     <div id="basicInformationDiv">
+ 
+       <div *ngFor="let h of basicInformations">
+         <a href="javascript:void(0)" target="_blank">[{{h.basicInformation}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getBasicInformationById(h.id)" (click)="openModal(editBasicInformation)">Edit</button>
+               <button mat-menu-item (click)="getBasicInformationById(h.id)"
+                 (click)="openModal(deleteBasicInformation)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteBasicInformation>
+           <div id="editBasicInformationModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteBasicInformationModalBody" class="modal-body">
+             <p>Do you want to delete ? {{basicInformation.basicInformation}}</p>
+           </div>
+           <button id="deleteBasicInformationModalBtn" class="btn btn-default" (click)="deleteBasicInformationById(basicInformation.id)"
+           (click)="BasicInformationRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteBasicInformationModalCloseBtn" class="btn btn-default" (click)="BasicInformationRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="basicInformationEditButton" mat-raised-button  (click)="openModal(editBasicInformation)">Add
+      Basic Information </button>
+     <hr>
+     <hr>
+
+     <!---------------------------RelationShip-start-here------------------------------------>
+     <p id="heading">RelationShip</p>
+     <hr>
+     <!--start-edit-RelationShip-modal -->
+ 
+     <ng-template #editRelationShip>
+       <div id="editRelationShipModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="relationShip.id">
+ 
+         <div id="relationShipForm">
+           <mat-form-field id="relationShipMatField">
+             <textarea matInput placeholder="RelationShip" type="text" autocomplete="off"
+               [(ngModel)]="relationShip.relationShip"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editRelationShipModalSaveBtn" class="btn btn-default" [disabled]="!relationShip.relationShip"
+           (click)="saveRelationShip()" (click)="RelationShipRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editRelationShipModalCloseBtn" class="btn btn-default" (click)="RelationShipRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-RelationShip-modal -->
+     <!--start-RelationShip-show-->
+     <div id="relationShipDiv">
+ 
+       <div *ngFor="let h of relationShips">
+         <a href="javascript:void(0)" target="_blank">[{{h.relationShip}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getRelationShipById(h.id)" (click)="openModal(editRelationShip)">Edit</button>
+               <button mat-menu-item (click)="getRelationShipById(h.id)"
+                 (click)="openModal(deleteRelationShip)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteRelationShip>
+           <div id="editRelationShipModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteRelationShipModalBody" class="modal-body">
+             <p>Do you want to delete ? {{relationShip.relationShip}}</p>
+           </div>
+           <button id="deleteRelationShipModalBtn" class="btn btn-default" (click)="deleteRelationShipById(relationShip.id)"
+           (click)="RelationShipRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteRelationShipModalCloseBtn" class="btn btn-default" (click)="RelationShipRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="relationShipEditButton" mat-raised-button  (click)="openModal(editRelationShip)">Add
+      RelationShip </button>
+     <hr>
+     <hr>
+
+     <!---------------------------FamilyMembers-start-here------------------------------------>
+     <p id="heading">FamilyMembers</p>
+     <hr>
+     <!--start-edit-FamilyMembers-modal -->
+ 
+     <ng-template #editFamilyMembers>
+       <div id="editFamilyMembersModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="familyMember.id">
+ 
+         <div id="familyMembersForm">
+           <mat-form-field id="familyMembersMatField">
+             <textarea matInput placeholder="FamilyMembers" type="text" autocomplete="off"
+               [(ngModel)]="familyMember.familyMember"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editFamilyMembersModalSaveBtn" class="btn btn-default" [disabled]="!familyMember.familyMember"
+           (click)="saveFamilyMembers()" (click)="FamilyMembersRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editFamilyMembersModalCloseBtn" class="btn btn-default" (click)="FamilyMembersRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-FamilyMembers-modal -->
+     <!--start-FamilyMembers-show-->
+     <div id="familyMembersDiv">
+ 
+       <div *ngFor="let h of familyMembers">
+         <a href="javascript:void(0)" target="_blank">[{{h.familyMember}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getFamilyMembersById(h.id)" (click)="openModal(editFamilyMembers)">Edit</button>
+               <button mat-menu-item (click)="getFamilyMembersById(h.id)"
+                 (click)="openModal(deleteFamilyMembers)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteFamilyMembers>
+           <div id="editFamilyMembersModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteFamilyMembersModalBody" class="modal-body">
+             <p>Do you want to delete ? {{familyMember.familyMember}}</p>
+           </div>
+           <button id="deleteFamilyMembersModalBtn" class="btn btn-default" (click)="deleteFamilyMembersById(familyMember.id)"
+           (click)="FamilyMembersRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteFamilyMembersModalCloseBtn" class="btn btn-default" (click)="FamilyMembersRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="familyMembersEditButton" mat-raised-button  (click)="openModal(editFamilyMembers)">Add
+      Family Members </button>
+     <hr>
+     <hr>
+
+
+     <!---------------------------FavoriteQuote-start-here------------------------------------>
+     <p id="heading">FavoriteQuotes</p>
+     <hr>
+     <!--start-edit-FavoriteQuotes-modal -->
+ 
+     <ng-template #editFavoriteQuotes>
+       <div id="editFavoriteQuotesModalHeader" class="modal-header">
+         <h4 class="modal-title">Notice and save modal carefully </h4>
+       </div>
+       <div class="modal-body">
+ 
+         <input type="hidden" [(ngModel)]="favoriteQuote.id">
+ 
+         <div id="favoriteQuotesForm">
+           <mat-form-field id="favoriteQuotesMatField">
+             <textarea matInput placeholder="FavoriteQuotes" type="text" autocomplete="off"
+               [(ngModel)]="favoriteQuote.favoriteQuote"></textarea>
+           </mat-form-field>
+         </div>
+ 
+         <button id="editFavoriteQuotesModalSaveBtn" class="btn btn-default" [disabled]="!favoriteQuote.favoriteQuote"
+           (click)="saveFavoriteQuotes()" (click)="FavoriteQuotesRefresh()" (click)="modalRef.hide()">Save</button>
+         <button id="editFavoriteQuotesModalCloseBtn" class="btn btn-default" (click)="FavoriteQuotesRefresh()"
+           (click)="modalRef.hide()">Close</button>
+       </div>
+     </ng-template>
+     <!--end-edit-FavoriteQuotes-modal -->
+     <!--start-FavoriteQuotes-show-->
+     <div id="favoriteQuotesDiv">
+ 
+       <div *ngFor="let h of favoriteQuotes">
+         <a href="javascript:void(0)" target="_blank">[{{h.favoriteQuote}}]</a>
+         <!--option template-->
+         <ng-template ngIf="true">
+           <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+               (mouseenter)="matMenuTrigger.openMenu()">
+               Options<span class="caret"></span>
+             </button></a>
+           <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+             <div (mouseleave)="matMenuTrigger.closeMenu()">
+               <button mat-menu-item (click)="getFavoriteQuotesById(h.id)" (click)="openModal(editFavoriteQuotes)">Edit</button>
+               <button mat-menu-item (click)="getFavoriteQuotesById(h.id)"
+                 (click)="openModal(deleteFavoriteQuotes)">Delete</button>
+ 
+             </div>
+           </mat-menu>
+         </ng-template>
+         <!--DELETE-MODAL-->
+ 
+         <ng-template #deleteFavoriteQuotes>
+           <div id="editFavoriteQuotesModalHeader" class="modal-header">
+             <h4 class="modal-title">Notice carefully </h4>
+           </div>
+           <div id="deleteFavoriteQuotesModalBody" class="modal-body">
+             <p>Do you want to delete ? {{favoriteQuote.favoriteQuote}}</p>
+           </div>
+           <button id="deleteFavoriteQuotesModalBtn" class="btn btn-default" (click)="deleteFavoriteQuotesById(favoriteQuote.id)"
+           (click)="FavoriteQuotesRefresh()" (click)="modalRef.hide()">Yes</button>
+           <button id="deleteFavoriteQuotesModalCloseBtn" class="btn btn-default" (click)="FavoriteQuotesRefresh()"
+             (click)="modalRef.hide()">No</button>
+         </ng-template>
+       </div>
+     </div>
+     <br>
+     <button id="favoriteQuotesEditButton" mat-raised-button  (click)="openModal(editFavoriteQuotes)">Add
+      Favorite Quotes </button>
+     <hr>
+     <hr>
 
 
   </div>
