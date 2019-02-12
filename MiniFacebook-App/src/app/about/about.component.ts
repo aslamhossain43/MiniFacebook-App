@@ -77,6 +77,13 @@ familyMembers: FamilyMembers[];
         this.getHighSchoolByUID();
         this.getCurrentCityByUID();
         this.getHomeTownByUID();
+        this.getOtherPlacesLivedByUID();
+        this.getContactInformationByUID();
+        this.getWebSiteAndSocialLinkByUID();
+        this.getBasicInformationByUID();
+        this.getRelationShipByUID();
+        this.getFamilyMembersByUID();
+        this.getFavoriteQuotesByUID();
       });
     }
     // ----------------------------------------------------------------------------------
@@ -92,6 +99,13 @@ familyMembers: FamilyMembers[];
    this.getHighSchoolByUID();
    this.getCurrentCityByUID();
    this.getHomeTownByUID();
+   this.getOtherPlacesLivedByUID();
+   this.getContactInformationByUID();
+   this.getWebSiteAndSocialLinkByUID();
+   this.getBasicInformationByUID();
+   this.getRelationShipByUID();
+   this.getFamilyMembersByUID();
+   this.getFavoriteQuotesByUID();
   }
 
 // ---------------------------------------------------------------------------------------
@@ -106,6 +120,13 @@ this.getCollegeByUID();
 this.getHighSchoolByUID();
 this.getCurrentCityByUID();
 this.getHomeTownByUID();
+this.getOtherPlacesLivedByUID();
+this.getContactInformationByUID();
+this.getWebSiteAndSocialLinkByUID();
+this.getBasicInformationByUID();
+this.getRelationShipByUID();
+this.getFamilyMembersByUID();
+this.getFavoriteQuotesByUID();
 }, (error) => {
 
 });
@@ -139,6 +160,13 @@ deleteWorkplaceById(id: string): void {
     this.getHighSchoolByUID();
     this.getCurrentCityByUID();
     this.getHomeTownByUID();
+    this.getOtherPlacesLivedByUID();
+    this.getContactInformationByUID();
+    this.getWebSiteAndSocialLinkByUID();
+    this.getBasicInformationByUID();
+    this.getRelationShipByUID();
+    this.getFamilyMembersByUID();
+    this.getFavoriteQuotesByUID();
   }, (error) => {
 
   });
@@ -160,6 +188,13 @@ this.getCollegeByUID();
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -193,6 +228,13 @@ this.getCollegeByUID();
       this.getHighSchoolByUID();
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
+      this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -210,6 +252,13 @@ saveCollege(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -243,6 +292,13 @@ saveCollege(): void {
       this.getHighSchoolByUID();
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
+      this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -263,6 +319,13 @@ saveHighSchool(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -296,6 +359,13 @@ saveHighSchool(): void {
       this.getHighSchoolByUID();
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
+      this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -314,6 +384,13 @@ saveCurrentCity(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -347,6 +424,13 @@ saveCurrentCity(): void {
       this.getHighSchoolByUID();
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
+      this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -365,6 +449,13 @@ saveHomeTown(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -398,6 +489,13 @@ saveHomeTown(): void {
       this.getHighSchoolByUID();
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
+      this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -416,6 +514,13 @@ saveOtherPlacesLived(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -450,6 +555,12 @@ saveOtherPlacesLived(): void {
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
       this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -468,6 +579,13 @@ saveContactInformation(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -502,6 +620,12 @@ saveContactInformation(): void {
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
       this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -520,6 +644,13 @@ saveWebSiteAndSocialLink(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -554,6 +685,12 @@ saveWebSiteAndSocialLink(): void {
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
       this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -573,6 +710,13 @@ saveBasicInformation(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -607,6 +751,12 @@ saveBasicInformation(): void {
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
       this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -625,6 +775,13 @@ saveRelationShip(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -659,6 +816,12 @@ saveRelationShip(): void {
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
       this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -677,6 +840,13 @@ saveFamilyMembers(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -685,6 +855,7 @@ saveFamilyMembers(): void {
   FamilyMembersRefresh() {
     this.familyMember.id = null;
     this.familyMember.familyMembers = null;
+    this.familyMember.relation = null;
   }
 // -------------------------------
   getFamilyMembersByUID(): void {
@@ -711,6 +882,12 @@ saveFamilyMembers(): void {
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
       this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });
@@ -729,6 +906,13 @@ saveFavoriteQuotes(): void {
   this.getHighSchoolByUID();
   this.getCurrentCityByUID();
   this.getHomeTownByUID();
+  this.getOtherPlacesLivedByUID();
+  this.getContactInformationByUID();
+  this.getWebSiteAndSocialLinkByUID();
+  this.getBasicInformationByUID();
+  this.getRelationShipByUID();
+  this.getFamilyMembersByUID();
+  this.getFavoriteQuotesByUID();
   }, (error) => {
   
   });
@@ -763,6 +947,12 @@ saveFavoriteQuotes(): void {
       this.getCurrentCityByUID();
       this.getHomeTownByUID();
       this.getOtherPlacesLivedByUID();
+      this.getContactInformationByUID();
+      this.getWebSiteAndSocialLinkByUID();
+      this.getBasicInformationByUID();
+      this.getRelationShipByUID();
+      this.getFamilyMembersByUID();
+      this.getFavoriteQuotesByUID();
     }, (error) => {
   
     });

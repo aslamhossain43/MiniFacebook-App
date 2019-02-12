@@ -3,7 +3,7 @@
   <div class="row">
     <!----------------------------------workplace-start-here------------------------------->
     <p id="heading">Workplace</p>
-    <hr>
+    
     <!--start-edit-workplace-modal -->
 
     <ng-template #editWorkplace>
@@ -31,23 +31,26 @@
     <!--start-workplaces-show-->
     <div id="workplaceDiv">
 
+      <div class="well">
       <div *ngFor="let w of workplaces">
-        <a href="javascript:void(0)" target="_blank">[{{w.workPlace}}]</a>
-        <!--option template-->
-        <ng-template ngIf="true">
-          <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
+
+          <a href="javascript:void(0)" target="_blank">[{{w.workPlace}}]</a>
+          <!--option template-->
+          <ng-template ngIf="true">
+            <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
               (mouseenter)="matMenuTrigger.openMenu()">
               Options<span class="caret"></span>
             </button></a>
-          <mat-menu #oauth="matMenu" [overlapTrigger]="false">
-            <div (mouseleave)="matMenuTrigger.closeMenu()">
-              <button mat-menu-item (click)="getWorkplaceById(w.id)" (click)="openModal(editWorkplace)">Edit</button>
-              <button mat-menu-item (click)="getWorkplaceById(w.id)"
+            <mat-menu #oauth="matMenu" [overlapTrigger]="false">
+              <div (mouseleave)="matMenuTrigger.closeMenu()">
+                <button mat-menu-item (click)="getWorkplaceById(w.id)" (click)="openModal(editWorkplace)">Edit</button>
+                <button mat-menu-item (click)="getWorkplaceById(w.id)"
                 (click)="openModal(deleteWorkplace)">Delete</button>
-
-            </div>
-          </mat-menu>
-        </ng-template>
+                
+              </div>
+            </mat-menu>
+          </ng-template>
+       
         <!--DELETE-MODAL-->
 
         <ng-template #deleteWorkplace>
@@ -63,18 +66,19 @@
             (click)="modalRef.hide()">No</button>
         </ng-template>
       </div>
-    </div>
+      </div>
+      </div>
+   
     <br>
     <button id="workplaceEditButton" mat-raised-button (click)="openModal(editWorkplace)">Add
         Workplaces </button>
     <hr>
-    <hr>
-
+  
 
 
      <!--------------------------professionalskill-start-here--------------------------->
      <p id="heading">Professional Skills</p>
-     <hr>
+    
      <!--start-edit-college-modal -->
  
      <ng-template #editProfessionalSkills>
@@ -101,7 +105,7 @@
      <!--end-edit-ProfessionalSkills-modal -->
      <!--start-ProfessionalSkills-show-->
      <div id="professionalSkillsDiv">
- 
+ <div class="well">
        <div *ngFor="let p of professionalSkills">
          <a href="javascript:void(0)" target="_blank">[{{p.professionalSkill}}]</a>
          <!--option template-->
@@ -134,6 +138,7 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="professionalSkillsEditButton" mat-raised-button  (click)="openModal(editProfessionalSkills)">Add
@@ -146,7 +151,7 @@
 
      <!---------------------------college-start-here------------------------------------>
      <p id="heading">College</p>
-     <hr>
+     
      <!--start-edit-college-modal -->
  
      <ng-template #editCollege>
@@ -173,7 +178,7 @@
      <!--end-edit-College-modal -->
      <!--start-College-show-->
      <div id="collegeDiv">
- 
+ <div class="well">
        <div *ngFor="let c of colleges">
          <a href="javascript:void(0)" target="_blank">[{{c.college}}]</a>
          <!--option template-->
@@ -206,18 +211,19 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="collegeEditButton" mat-raised-button  (click)="openModal(editCollege)">Add
       College </button>
      <hr>
-     <hr>
+  
 
 
 
      <!---------------------------high-school-start-here------------------------------------>
      <p id="heading">High School</p>
-     <hr>
+ 
      <!--start-edit-high-school-modal -->
  
      <ng-template #editHighSchool>
@@ -244,7 +250,7 @@
      <!--end-edit-HighSchool-modal -->
      <!--start-HighSchool-show-->
      <div id="highSchoolDiv">
- 
+ <div class="well">
        <div *ngFor="let h of highSchools">
          <a href="javascript:void(0)" target="_blank">[{{h.highSchool}}]</a>
          <!--option template-->
@@ -277,19 +283,20 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="highSchoolEditButton" mat-raised-button  (click)="openModal(editHighSchool)">Add
       High School </button>
      <hr>
-     <hr>
+     
 
 
 
 
      <!---------------------------current-city-start-here------------------------------------>
      <p id="heading">Current City</p>
-     <hr>
+    
      <!--start-edit-current-city-modal -->
  
      <ng-template #editCurrentCity>
@@ -316,7 +323,7 @@
      <!--end-edit-CurrentCity-modal -->
      <!--start-CurrentCity-show-->
      <div id="currentCityDiv">
- 
+ <div class="well">
        <div *ngFor="let h of currentCities">
          <a href="javascript:void(0)" target="_blank">[{{h.currentCity}}]</a>
          <!--option template-->
@@ -349,18 +356,19 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="currentCityEditButton" mat-raised-button  (click)="openModal(editCurrentCity)">Add
       Current City </button>
      <hr>
-     <hr>
+     
 
 
 
      <!---------------------------home-town-start-here------------------------------------>
      <p id="heading">Home Town</p>
-     <hr>
+    
      <!--start-edit-home-town-modal -->
  
      <ng-template #editHomeTown>
@@ -387,7 +395,7 @@
      <!--end-edit-HomeTown-modal -->
      <!--start-HomeTown-show-->
      <div id="homeTownDiv">
- 
+ <div class="well">
        <div *ngFor="let h of homeTowns">
          <a href="javascript:void(0)" target="_blank">[{{h.homeTown}}]</a>
          <!--option template-->
@@ -420,19 +428,20 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="homeTownEditButton" mat-raised-button  (click)="openModal(editHomeTown)">Add
       Home Town </button>
      <hr>
-     <hr>
+  
 
 
 
 
      <!---------------------------other-places-lived-start-here------------------------------------>
      <p id="heading">Other Places Lived</p>
-     <hr>
+   
      <!--start-edit-other-places-lived-modal -->
  
      <ng-template #editOtherPlacesLived>
@@ -444,7 +453,7 @@
          <input type="hidden" [(ngModel)]="otherPlacesLived.id">
  
          <div id="OtherPlacesLivedForm">
-           <mat-form-field id="OtherPlacesLivedMatField">
+           <mat-form-field id="otherPlacesLivedMatField">
              <textarea matInput placeholder="Other Places Lived" type="text" autocomplete="off"
                [(ngModel)]="otherPlacesLived.otherPlacesLived"></textarea>
            </mat-form-field>
@@ -459,7 +468,7 @@
      <!--end-edit-OtherPlacesLived-modal -->
      <!--start-OtherPlacesLived-show-->
      <div id="otherPlacesLivedDiv">
- 
+ <div class="well">
        <div *ngFor="let h of otherPlacesLiveds">
          <a href="javascript:void(0)" target="_blank">[{{h.otherPlacesLived}}]</a>
          <!--option template-->
@@ -492,19 +501,20 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="otherPlacesLivedEditButton" mat-raised-button  (click)="openModal(editOtherPlacesLived)">Add
       Other Places Lived </button>
      <hr>
-     <hr>
+    
 
 
 
 
      <!---------------------------contact-information-start-here------------------------------------>
      <p id="heading">Contact Information</p>
-     <hr>
+    
      <!--start-edit-contact-information-modal -->
  
      <ng-template #editContactInformation>
@@ -515,8 +525,8 @@
  
          <input type="hidden" [(ngModel)]="contactInformation.id">
  
-         <div id="ContactInformationForm">
-           <mat-form-field id="ContactInformationMatField">
+         <div id="contactInformationForm">
+           <mat-form-field id="contactInformationMatField">
              <textarea matInput placeholder="Contact Information" type="text" autocomplete="off"
                [(ngModel)]="contactInformation.contactInformation"></textarea>
            </mat-form-field>
@@ -531,7 +541,7 @@
      <!--end-edit-ContactInformation-modal -->
      <!--start-ContactInformation-show-->
      <div id="contactInformationDiv">
- 
+ <div class="well">
        <div *ngFor="let h of contactInformations">
          <a href="javascript:void(0)" target="_blank">[{{h.contactInformation}}]</a>
          <!--option template-->
@@ -564,18 +574,19 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="contactInformationEditButton" mat-raised-button  (click)="openModal(editContactInformation)">Add
       Contact Information </button>
      <hr>
-     <hr>
+  
 
 
 
      <!---------------------------WebSiteAndSocialLink-start-here------------------------------------>
      <p id="heading">WebSite And Social Link</p>
-     <hr>
+   
      <!--start-edit-WebSiteAndSocialLink-modal -->
  
      <ng-template #editWebSiteAndSocialLink>
@@ -602,7 +613,7 @@
      <!--end-edit-WebSiteAndSocialLink-modal -->
      <!--start-WebSiteAndSocialLink-show-->
      <div id="webSiteAndSocialLinkDiv">
- 
+ <div class="well">
        <div *ngFor="let h of webSiteAndSocialLinks">
          <a href="javascript:void(0)" target="_blank">[{{h.webSiteAndSocialLink}}]</a>
          <!--option template-->
@@ -635,16 +646,17 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="webSiteAndSocialLinkEditButton" mat-raised-button  (click)="openModal(editWebSiteAndSocialLink)">Add
       WebSite And Social Link </button>
      <hr>
-     <hr>
+     
 
      <!---------------------------BasicInformation-start-here------------------------------------>
-     <p id="heading">WebSite And Social Link</p>
-     <hr>
+     <p id="heading">Basic Information</p>
+     
      <!--start-edit-BasicInformation-modal -->
  
      <ng-template #editBasicInformation>
@@ -671,7 +683,7 @@
      <!--end-edit-BasicInformation-modal -->
      <!--start-BasicInformation-show-->
      <div id="basicInformationDiv">
- 
+ <div class="well">
        <div *ngFor="let h of basicInformations">
          <a href="javascript:void(0)" target="_blank">[{{h.basicInformation}}]</a>
          <!--option template-->
@@ -704,16 +716,17 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="basicInformationEditButton" mat-raised-button  (click)="openModal(editBasicInformation)">Add
       Basic Information </button>
      <hr>
-     <hr>
+     
 
      <!---------------------------RelationShip-start-here------------------------------------>
      <p id="heading">RelationShip</p>
-     <hr>
+    
      <!--start-edit-RelationShip-modal -->
  
      <ng-template #editRelationShip>
@@ -723,14 +736,31 @@
        <div class="modal-body">
  
          <input type="hidden" [(ngModel)]="relationShip.id">
- 
-         <div id="relationShipForm">
-           <mat-form-field id="relationShipMatField">
-             <textarea matInput placeholder="RelationShip" type="text" autocomplete="off"
-               [(ngModel)]="relationShip.relationShip"></textarea>
-           </mat-form-field>
-         </div>
- 
+        
+          <mat-form-field id="relationShipMatField">
+            <mat-select matInput autocomplete="off" placeholder="Relationship Status" [(ngModel)]="relationShip.relationShip">
+              <mat-option id="relationShipMatFieldForOptions" value="Single">Single</mat-option>
+              <mat-option id="relationShipMatFieldForOptions" value="In a relationship">In a relationship</mat-option>
+     
+              <mat-option id="relationShipMatFieldForOptions" value="Engaged">Engaged</mat-option>
+              <mat-option id="relationShipMatFieldForOptions" value="Married">Married</mat-option>
+     
+              <mat-option id="relationShipMatFieldForOptions" value="In a civil union">In a civil union</mat-option>
+              <mat-option id="relationShipMatFieldForOptions" value="In a domestic partnership">In a domestic partnership</mat-option>
+     
+              <mat-option id="relationShipMatFieldForOptions" value="In an open relationship">In an open relationship</mat-option>
+              <mat-option id="relationShipMatFieldForOptions" value="It's complecated">It's complecated</mat-option>
+     
+              <mat-option id="relationShipMatFieldForOptions" value="Separated">Separated</mat-option>
+              <mat-option id="relationShipMatFieldForOptions" value="Divorced">Divorced</mat-option>
+     
+     
+     
+     
+            </mat-select>
+          </mat-form-field>
+
+       
          <button id="editRelationShipModalSaveBtn" class="btn btn-default" [disabled]="!relationShip.relationShip"
            (click)="saveRelationShip()" (click)="RelationShipRefresh()" (click)="modalRef.hide()">Save</button>
          <button id="editRelationShipModalCloseBtn" class="btn btn-default" (click)="RelationShipRefresh()"
@@ -740,7 +770,7 @@
      <!--end-edit-RelationShip-modal -->
      <!--start-RelationShip-show-->
      <div id="relationShipDiv">
- 
+ <div class="well">
        <div *ngFor="let h of relationShips">
          <a href="javascript:void(0)" target="_blank">[{{h.relationShip}}]</a>
          <!--option template-->
@@ -773,16 +803,17 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="relationShipEditButton" mat-raised-button  (click)="openModal(editRelationShip)">Add
       RelationShip </button>
      <hr>
-     <hr>
+  
 
      <!---------------------------FamilyMembers-start-here------------------------------------>
      <p id="heading">FamilyMembers</p>
-     <hr>
+   
      <!--start-edit-FamilyMembers-modal -->
  
      <ng-template #editFamilyMembers>
@@ -796,11 +827,66 @@
          <div id="familyMembersForm">
            <mat-form-field id="familyMembersMatField">
              <textarea matInput placeholder="FamilyMembers" type="text" autocomplete="off"
-               [(ngModel)]="familyMember.familyMember"></textarea>
+               [(ngModel)]="familyMember.familyMembers"></textarea>
            </mat-form-field>
          </div>
  
-         <button id="editFamilyMembersModalSaveBtn" class="btn btn-default" [disabled]="!familyMember.familyMember"
+         <br>
+         <div id="familyMembersForm">
+           <mat-form-field id="familyMembersMatField">
+             <mat-select matInput autocomplete="off" placeholder="Relation Ship" [(ngModel)]="familyMember.relation">
+               <mat-option id="familyMembersMatFieldForOptions" value="Father">Father</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Mother">Mother</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="Daughter">Daughter</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Son">Son</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="Sister">Sister</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Brother">Brother</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="Aunt">Aunt</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Uncle">Uncle</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="Niece">Niece</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Nephew">Nephew</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="Cousin(Femal)">Cousin(Femal)</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Cousin(male)">Cousin(male)</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="GrandMother">GrandMother</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="GrandFather">GrandFather</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="GrandDaughter">GrandDaughter</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="GrandSon">GrandSon</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="GrandSister">GrandSister</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="StepSister">StepSister</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="StepBrother">StepBrother</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="StepMother">StepMother</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="StepDaughter">StepDaughter</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="StepSon">StepSon</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="Sister-in-law">Sister-in-law</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Brother-in-law">Brother-in-law</mat-option>
+            
+               <mat-option id="familyMembersMatFieldForOptions" value="Mother-in-law">Mother-in-law</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Father-in-law">Father-in-law</mat-option>
+ 
+               <mat-option id="familyMembersMatFieldForOptions" value="Daughter-in-law">Daughter-in-law</mat-option>
+               <mat-option id="familyMembersMatFieldForOptions" value="Son-in-law">Son-in-law</mat-option>
+ 
+
+
+
+            
+            
+              </mat-select>
+           </mat-form-field>
+ 
+         </div>
+ 
+
+         <button id="editFamilyMembersModalSaveBtn" class="btn btn-default" [disabled]="!(familyMember.familyMembers && familyMember.relation)"
            (click)="saveFamilyMembers()" (click)="FamilyMembersRefresh()" (click)="modalRef.hide()">Save</button>
          <button id="editFamilyMembersModalCloseBtn" class="btn btn-default" (click)="FamilyMembersRefresh()"
            (click)="modalRef.hide()">Close</button>
@@ -809,9 +895,10 @@
      <!--end-edit-FamilyMembers-modal -->
      <!--start-FamilyMembers-show-->
      <div id="familyMembersDiv">
- 
+ <div class="well">
        <div *ngFor="let h of familyMembers">
-         <a href="javascript:void(0)" target="_blank">[{{h.familyMember}}]</a>
+         <a href="javascript:void(0)" target="_blank"> Name : {{h.familyMembers}} , Relationship :  {{h.relation}}</a>
+  
          <!--option template-->
          <ng-template ngIf="true">
            <a><button id="optionsBtn" mat-button [matMenuTriggerFor]="oauth" #matMenuTrigger="matMenuTrigger"
@@ -834,7 +921,8 @@
              <h4 class="modal-title">Notice carefully </h4>
            </div>
            <div id="deleteFamilyMembersModalBody" class="modal-body">
-             <p>Do you want to delete ? {{familyMember.familyMember}}</p>
+             <p>Do you want to delete ? Name : {{familyMember.familyMembers}} , Relationship :  {{familyMember.relation}}</p>
+           
            </div>
            <button id="deleteFamilyMembersModalBtn" class="btn btn-default" (click)="deleteFamilyMembersById(familyMember.id)"
            (click)="FamilyMembersRefresh()" (click)="modalRef.hide()">Yes</button>
@@ -842,17 +930,18 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="familyMembersEditButton" mat-raised-button  (click)="openModal(editFamilyMembers)">Add
       Family Members </button>
      <hr>
-     <hr>
+   
 
 
      <!---------------------------FavoriteQuote-start-here------------------------------------>
      <p id="heading">FavoriteQuotes</p>
-     <hr>
+    
      <!--start-edit-FavoriteQuotes-modal -->
  
      <ng-template #editFavoriteQuotes>
@@ -879,7 +968,7 @@
      <!--end-edit-FavoriteQuotes-modal -->
      <!--start-FavoriteQuotes-show-->
      <div id="favoriteQuotesDiv">
- 
+ <div class="well">
        <div *ngFor="let h of favoriteQuotes">
          <a href="javascript:void(0)" target="_blank">[{{h.favoriteQuote}}]</a>
          <!--option template-->
@@ -912,12 +1001,13 @@
              (click)="modalRef.hide()">No</button>
          </ng-template>
        </div>
+       </div>
      </div>
      <br>
      <button id="favoriteQuotesEditButton" mat-raised-button  (click)="openModal(editFavoriteQuotes)">Add
       Favorite Quotes </button>
      <hr>
-     <hr>
+     
 
 
   </div>

@@ -27,6 +27,8 @@ html,body {
  float: right;
 }
 
-
-
+/*ng modal shows behind the modal*/
+.cdk-overlay-container, .cdk-overlay-pane {
+  z-index: 9999 !important;
+}
 
