@@ -6,7 +6,7 @@
 
       <div id="profileImageShowDiv">
         <div *ngFor="let p of lastProfilePhoto">
-          <img id="profileImageShow" src="http://192.168.1.105:8080/zuul-profileStock/single/photoCode/{{p.photoCode}}"
+          <img id="profileImageShow" src="http://localhost:8080/zuul-profileStock/single/photoCode/{{p.photoCode}}"
             class="img-thumbnail" alt="No Image">
         </div>
       </div>
@@ -119,7 +119,7 @@
             <div  *ngFor="let p of profilePhotos">
           <div class="modal-body">
 
-            <img id="showProfileAllPhotos" src="http://192.168.1.105:8080/zuul-profileStock/photoCode/{{p.photoCode}}"
+            <img id="showProfileAllPhotos" src="http://localhost:8080/zuul-profileStock/photoCode/{{p.photoCode}}"
               class="img-thumbnail" alt="No Image">
               
             
@@ -135,7 +135,7 @@
               </div>
                 <div id="profilePhotoDeleteConfirm-body" class="modal-body">
       
-                  <img id="showProfilePhotoDeleteConfirm" src="http://192.168.1.105:8080/zuul-profileStock/photoCode/{{p.photoCode}}"
+                  <img id="showProfilePhotoDeleteConfirm" src="http://localhost:8080/zuul-profileStock/photoCode/{{p.photoCode}}"
                    class="img-thumbnail" alt="No Image">
                 </div>
                 <button id="profilePhotoDeleteConfirm" class="btn btn-default" (click)="deleteProfilePhotoById(p.id)"

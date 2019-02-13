@@ -31,14 +31,14 @@ export class ProfileComponent implements OnInit {
     private profileDeleteService: ProfileDeleteService) {
     this.af.authState.subscribe(auth => {
       this.uid = auth.uid;
-      this.getProfilePhotosAllInformations(this.uid);
-      this.getLastProfilePhotoInformation(this.uid);
+       this.getLastProfilePhotoInformation();
+      this.getProfilePhotosAllInformations();
     });
   }
 
   ngOnInit(): void {
-    this.getProfilePhotosAllInformations(this.uid);
-      this.getLastProfilePhotoInformation(this.uid);
+   // this.getLastProfilePhotoInformation();
+    this.getProfilePhotosAllInformations();
 
   }
 
@@ -58,8 +58,8 @@ export class ProfileComponent implements OnInit {
     this.profileImageService.addProfileImage(this.currentProfileImageUpload, this.uid)
       .subscribe(event => {
         this.selectedProfileImageRefreshToWorkImage();
-        this.getProfilePhotosAllInformations(this.uid);
-        this.getLastProfilePhotoInformation(this.uid);
+        this.getProfilePhotosAllInformations();
+        this.getLastProfilePhotoInformation();
             },
         (error) => {
 
@@ -72,17 +72,16 @@ export class ProfileComponent implements OnInit {
   }
 
   // GET PROFILE PHOTO'S ALL INFORMATIONS
-  getProfilePhotosAllInformations(uid: string): void {
-    this.profileGetService.getProfilePhotosAllInformation(uid)
+  getProfilePhotosAllInformations(): void {
+    this.profileGetService.getProfilePhotosAllInformation(this.uid)
       .subscribe((profilePhotosAllInformation) => {
         this.profilePhotos = profilePhotosAllInformation;
-        this.getLastProfilePhotoInformation(this.uid);
       });
   }
 
   // GET LAST PROFILE PHOTO INFORMATION
-  getLastProfilePhotoInformation(uid: string): void {
-    this.profileGetService.getLastProfilePhotoInformation(uid)
+  getLastProfilePhotoInformation(): void {
+    this.profileGetService.getLastProfilePhotoInformation(this.uid)
       .subscribe((profilePhotosAllInformation) => {
         this.lastProfilePhoto = profilePhotosAllInformation;
 
@@ -92,8 +91,8 @@ export class ProfileComponent implements OnInit {
 deleteProfilePhotoById(id: string){
   this.profileDeleteService.deleteProfilePhotoById(id)
   .subscribe(event => {
-   this.getProfilePhotosAllInformations(this.uid);
-   this.getLastProfilePhotoInformation(this.uid);
+   this.getProfilePhotosAllInformations();
+   this.getLastProfilePhotoInformation();
   },
   (error) => {
   });
