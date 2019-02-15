@@ -30,6 +30,7 @@ import { ProfileGetService } from './profile/profile.photo-get-service';
 import { ProfileDeleteService } from './profile/profile.delete-service';
 import { AboutComponent } from './about/about.component';
 import { AboutService } from './about/about.service';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,7 @@ import { AboutService } from './about/about.service';
     NgxBootstrapModule
   ],
   providers: [AuthGuard, AngularFireAuth, BsModalService, ProfileService, ProfileGetService,
-ProfileDeleteService , AboutService],
+ProfileDeleteService , AboutService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
