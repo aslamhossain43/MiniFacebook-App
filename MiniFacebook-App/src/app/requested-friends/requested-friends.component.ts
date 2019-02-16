@@ -10,9 +10,7 @@ import { Response } from '@angular/http';
   styleUrls: ['./requested-friends.component.scss']
 })
 export class RequestedFriendsComponent implements OnInit {
-  items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
-    // ---------------------------------------------------------------------------------------------
-loginInformation = new LoginInformation();
+ loginInformation = new LoginInformation();
 
 // --------------------------------------------------------------------------------------------
 constructor(public af: AngularFireAuth, private logService: LoginService) {
