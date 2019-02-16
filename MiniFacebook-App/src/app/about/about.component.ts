@@ -16,6 +16,8 @@ import { BasicInformation } from './about.basicinformation';
 import { RelationShip } from './about.relationship';
 import { FamilyMembers } from './about.familymembers';
 import { FavoriteQuotes } from './about.favoritequotes';
+import { LoginService } from '../login/login.service';
+import { LoginInformation } from '../login/login.loginformation';
 
 @Component({
   selector: 'app-about',
@@ -23,6 +25,9 @@ import { FavoriteQuotes } from './about.favoritequotes';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  // ---------------------------------------------------------------------------------------------
+loginInformation = new LoginInformation();
+  // ------------------------------------------------------------------------------------
   uid: string;
    // --------------------------------------------------------------------------------
    public modalRef: BsModalRef;
@@ -68,7 +73,7 @@ familyMembers: FamilyMembers[];
 // ------------------------------------------------------------------------------------
   constructor( /* FOR NGX BOOTSTRAP  MODAL*/
     private modalService: BsModalService, private aboutService: AboutService,
-    private af: AngularFireAuth) { 
+    private af: AngularFireAuth, private logService: LoginService) { 
       this.af.authState.subscribe(auth => {
         this.uid = auth.uid;
         this.getWorkplaceByUID();
@@ -85,6 +90,17 @@ familyMembers: FamilyMembers[];
         this.getFamilyMembersByUID();
         this.getFavoriteQuotesByUID();
       });
+      // ----------------------------------
+      this.af.authState.subscribe(auth => {
+
+        this.loginInformation.uid = auth.uid;
+        if (auth.displayName) {
+          this.loginInformation.userName = auth.displayName;
+        } else {
+          this.loginInformation.email = auth.email;
+        }
+        this.loginInformation.photoUrl = auth.photoURL;
+      });
     }
     // ----------------------------------------------------------------------------------
  // FOR NGX BOOTSTRAP  MODAL
@@ -93,6 +109,8 @@ familyMembers: FamilyMembers[];
 }
 // --------------------------------------------------------------------------------------
   ngOnInit(): void {
+    this.addLoginInformation();
+// ------------------------------
     this.getWorkplaceByUID();
    this.getProfessionalSkillsByUID();
    this.getCollegeByUID();
@@ -958,6 +976,22 @@ saveFavoriteQuotes(): void {
     });
   }
 
+// --------------------------------------------------------------------------------------------
+addLoginInformation(): void {
+  this.logService.saveLoginInformation(this.loginInformation)
+  .subscribe((response: Response) => {
+  }, (error) => {
+
+  });
+  }
+  // ------------------------------------------------------------------------------------------
+  RefreshLoginInformation(): void {
+    this.loginInformation.id = null;
+    this.loginInformation.uid = null;
+    this.loginInformation.email = null;
+    this.loginInformation.photoUrl = null;
+    this.loginInformation.userName = null;
+  }
 
 
 }

@@ -15,59 +15,60 @@ import { Response } from '@angular/http';
 
 })
 export class EmailComponent implements OnInit {
-    // ----------------------------------------------------------------------------------------
+       // ---------------------------------------------------------------------------------------------
 loginInformation = new LoginInformation();
+
 // -------------------------------------------------------------------------------------------
   state: '';
   error: any;
 // --------------------------------------------------------------------------------------------
-  constructor(public af: AngularFireAuth, private router: Router, private logService: LoginService) {
+  constructor(public af: AngularFireAuth, private router: Router,
+     private logService: LoginService) {
   this.af.authState.subscribe(auth => {
     if (auth) {
       this.router.navigateByUrl('/home');
     }
   });
+  // --------------------------------
+  this.af.authState.subscribe(auth => {
+
+    this.loginInformation.uid = auth.uid;
+    if (auth.displayName) {
+      this.loginInformation.userName = auth.displayName;
+    } else {
+      this.loginInformation.email = auth.email;
+    }
+    this.loginInformation.photoUrl = auth.photoURL;
+  });
+
 }
 // ---------------------------------------------------------------------------------------
  @HostBinding('@fromTop')
 // -------------------------------------------------------------------------------------------
 onSubmit(formData) {
   if (formData.valid) {
-    console.log(formData.value);
+
     this.af.auth.signInWithEmailAndPassword(formData.value.email, formData.value.password)
     .then(
       (success) => {
-        console.log(success);
       this.router.navigate(['/home']);
-      this.RefreshLoginInformation();
-      this.af.authState.subscribe(auth => {
-
-        this.loginInformation.uid = auth.uid;
-        if (auth.displayName) {
-          this.loginInformation.userName = auth.displayName;
-        } else {
-          this.loginInformation.email = auth.email;
-        }
-        this.loginInformation.photoUrl = auth.photoURL;
-        this.addLoginInformation();
-      });
     }).catch(
       (err) => {
         console.log(err);
-      this.error = err;
-    });
+        this.error = err;
+      });
   }
 }
 // -------------------------------------------------------------------------------------------
   ngOnInit() {
+    this.addLoginInformation();
   }
 // --------------------------------------------------------------------------------------------
 addLoginInformation(): void {
   this.logService.saveLoginInformation(this.loginInformation)
   .subscribe((response: Response) => {
-  
   }, (error) => {
-  
+
   });
   }
   // ------------------------------------------------------------------------------------------
@@ -78,5 +79,9 @@ addLoginInformation(): void {
     this.loginInformation.photoUrl = null;
     this.loginInformation.userName = null;
   }
-  
+
+// --------------------------------------------------------------------------------------------
+
+  // --------------------------------------------------------------------------------------------
+ 
 }

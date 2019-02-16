@@ -13,14 +13,13 @@ import { Response } from '@angular/http';
   animations: [fromBottom()]
 })
 export class LoginComponent implements OnInit {
-  // ----------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
 loginInformation = new LoginInformation();
 
 // -------------------------------------------------------------------------------------------
   error: any;
   // -----------------------------------------------------------------------------------------
-  constructor(public af: AngularFireAuth, private router: Router,
-     private logService: LoginService) {
+  constructor(public af: AngularFireAuth, private router: Router, private logService: LoginService) {
 
     this.af.authState.subscribe(auth => {
       if (auth) {
@@ -28,6 +27,18 @@ loginInformation = new LoginInformation();
       }
 
   });
+    // --------------------------------
+    this.af.authState.subscribe(auth => {
+
+      this.loginInformation.uid = auth.uid;
+      if (auth.displayName) {
+        this.loginInformation.userName = auth.displayName;
+      } else {
+        this.loginInformation.email = auth.email;
+      }
+      this.loginInformation.photoUrl = auth.photoURL;
+    });
+  
 }
 // --------------------------------------------------------------------------------------------
   @HostBinding('@fromBottom')
@@ -36,19 +47,6 @@ loginInformation = new LoginInformation();
     this.af.auth.signInWithPopup(new authen.FacebookAuthProvider()).then(
       (success) => {
   this.router.navigate(['/home']);
-this.RefreshLoginInformation();
-this.af.authState.subscribe(auth => {
-
-  this.loginInformation.uid = auth.uid;
-  if (auth.displayName) {
-    this.loginInformation.userName = auth.displayName;
-  } else {
-    this.loginInformation.email = auth.email;
-  }
-  this.loginInformation.photoUrl = auth.photoURL;
-  this.addLoginInformation();
-});
-
 }).catch(
   (err) => {
     this.error = err;
@@ -58,50 +56,35 @@ this.af.authState.subscribe(auth => {
   loginGoogle() {
     this.af.auth.signInWithPopup(new authen.GoogleAuthProvider()).then(
       (success) => {
-
         this.router.navigate(['/home']);
-        this.RefreshLoginInformation();
-this.af.authState.subscribe(auth => {
-
-  this.loginInformation.uid = auth.uid;
-  if (auth.displayName) {
-    this.loginInformation.userName = auth.displayName;
-  } else {
-    this.loginInformation.email = auth.email;
-  }
-  this.loginInformation.photoUrl = auth.photoURL;
-  this.addLoginInformation();
-});
-
-      }).catch(
-        (err) => {
-          this.error = err;
-        });
+}).catch(
+  (err) => {
+    this.error = err;
+  });
   }
 // -------------------------------------------------------------------------------------------
   ngOnInit(): void {
-
+    this.addLoginInformation();
+  
   }
 // --------------------------------------------------------------------------------------------
 addLoginInformation(): void {
-this.logService.saveLoginInformation(this.loginInformation)
-.subscribe((response: Response) => {
+  this.logService.saveLoginInformation(this.loginInformation)
+  .subscribe((response: Response) => {
+  }, (error) => {
 
-}, (error) => {
+  });
+  }
+  // ------------------------------------------------------------------------------------------
+  RefreshLoginInformation(): void {
+    this.loginInformation.id = null;
+    this.loginInformation.uid = null;
+    this.loginInformation.email = null;
+    this.loginInformation.photoUrl = null;
+    this.loginInformation.userName = null;
+  }
 
-});
-}
-
-RefreshLoginInformation(): void {
-  this.loginInformation.id = null;
-  this.loginInformation.uid = null;
-  this.loginInformation.email = null;
-  this.loginInformation.photoUrl = null;
-  this.loginInformation.userName = null;
-}
-
-
-
+// --------------------------------------------------------------------------------------------
 
 
 }
