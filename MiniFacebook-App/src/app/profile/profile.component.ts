@@ -8,6 +8,8 @@ import { ProfileDeleteService } from './profile.delete-service';
 import { LoginInformation } from '../login/login.loginformation';
 import { LoginService } from '../login/login.service';
 import { Response } from '@angular/http';
+import { SmallDataService } from './profile.small-data-service';
+import { SmallData } from './profile.small-data';
 
 @Component({
   selector: 'app-profile',
@@ -36,13 +38,17 @@ loginInformation = new LoginInformation();
   profilePhotos: ProfilePhoto[];
   lastProfilePhoto: ProfilePhoto[];
   profilePhoto = new ProfilePhoto();
+  // ----------------------------------------------------------------------------------------
+  smallData = new SmallData();
   // -----------------------------------------------------------------------------------------
   constructor( /* FOR NGX BOOTSTRAP  MODAL*/
     private modalService: BsModalService, private profileImageService: ProfileService,
     private af: AngularFireAuth, private profileGetService: ProfileGetService,
-    private profileDeleteService: ProfileDeleteService, private logService: LoginService) {
+    private profileDeleteService: ProfileDeleteService, private logService: LoginService,
+    private smallDataService: SmallDataService) {
     this.af.authState.subscribe(auth => {
       this.uid = auth.uid;
+      this.smallData.uid = auth.uid;
        this.getLastProfilePhotoInformation();
       this.getProfilePhotosAllInformations();
     });
@@ -57,7 +63,7 @@ loginInformation = new LoginInformation();
       }
       this.loginInformation.photoUrl = auth.photoURL;
      });
-     
+
   }
 
   ngOnInit() {
@@ -88,6 +94,7 @@ loginInformation = new LoginInformation();
         this.selectedProfileImageRefreshToWorkImage();
         this.getProfilePhotosAllInformations();
         this.getLastProfilePhotoInformation();
+        
             },
         (error) => {
 
@@ -113,7 +120,9 @@ loginInformation = new LoginInformation();
     this.profileGetService.getLastProfilePhotoInformation(this.uid)
       .subscribe((profilePhotosAllInformation) => {
         this.lastProfilePhoto = profilePhotosAllInformation;
-
+        // -------------------------------------
+        this.smallData.photoCode = this.lastProfilePhoto[0].photoCode;
+        this.addSmallData();
       });
   }
   // --------------------------------------------------------------------------------------
@@ -145,7 +154,17 @@ addLoginInformation(): void {
     this.loginInformation.userName = null;
   }
 
+
+
+
 // --------------------------------------------------------------------------------------------
+addSmallData(): void {
+  this.smallDataService.addSmallData(this.smallData)
+  .subscribe((response: Response) => {
+  }, (error) => {
+  });
+  }
+  // --------------------------------------------------------------------------------------------
 
 
 }

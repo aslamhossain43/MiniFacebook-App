@@ -1,37 +1,45 @@
 <div class="container">
 
-<div class="row">
-  <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-    
-    <!-- Media top -->
-<div id="mediaDiv">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
 
-  <div class="media">
-    <div class="media-left media-top">
-     <a  href="javascript:void(0)" ><img id="mediaImage" src="assets/images/aslam.jpg" class="media-object" ></a>
-    </div>
-    <div class="media-body">
-
-      <a href="javascript:void(0)" class="media-heading">Atif Aslam</a>
-      <p id="workedPlaces">Worked at : Hajee Mohammad Danesh Science And Technology University</p>
-      
-      <p id="workedPlaces">120 mutual friends</p>
-    </div>
-    <div class="media-right media-middle">
-       <p id="addFriendText" class="btn btn-primary">Add Friends</p>
-       </div>
-       <div class="media-right media-middle">
-          <p id="remove" class="btn btn-default">Remove</p>
+      <!-- Media top -->
+      <div id="mediaDiv" *ngFor="let l of allLoginformation">
+        <div class="media">
+          <div class="media-left media-top">
+            <a href="javascript:void(0)"><img id="mediaImage" [src]="l.photoUrl" class="media-object"></a>
           </div>
-  </div>
-</div>
+          <div class="media-body">
+
+            <a href="javascript:void(0)" class="media-heading">{{l.userName}}</a>
+           
+
+            <p  id="workedPlaces">{{allWorkplaces.workPlace}}</p>
+
+            <p id="workedPlaces">{{l.createdDate}}</p>
+
+            <p id="workedPlaces">{{l.uid}}</p>
+            <p id="workedPlaces">{{l.email}}</p>
+            <p id="workedPlaces">{{l.lastModifiedDate}}</p>
+            
+
+            <p id="workedPlaces">120 mutual friends</p>
+          </div>
+          <div class="media-right media-middle">
+            <p id="addFriendText" class="btn btn-primary">Add Friends</p>
+          </div>
+          <div class="media-right media-middle">
+            <p id="remove" class="btn btn-default">Remove</p>
+          </div>
+        </div>
+      </div>
 
 
- 
-  
-  
+
+
+
     </div>
   </div>
-  
-  
-  </div>
+
+
+</div>

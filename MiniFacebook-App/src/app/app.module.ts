@@ -31,6 +31,8 @@ import { ProfileDeleteService } from './profile/profile.delete-service';
 import { AboutComponent } from './about/about.component';
 import { AboutService } from './about/about.service';
 import { LoginService } from './login/login.service';
+import { AddFriendService } from './add-friends/add-friends.service';
+import { SmallDataService } from './profile/profile.small-data-service';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,7 @@ import { LoginService } from './login/login.service';
     NgxBootstrapModule
   ],
   providers: [AuthGuard, AngularFireAuth, BsModalService, ProfileService, ProfileGetService,
-ProfileDeleteService , AboutService, LoginService],
+ProfileDeleteService , AboutService, LoginService, AddFriendService, SmallDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

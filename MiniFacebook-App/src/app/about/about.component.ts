@@ -18,6 +18,8 @@ import { FamilyMembers } from './about.familymembers';
 import { FavoriteQuotes } from './about.favoritequotes';
 import { LoginService } from '../login/login.service';
 import { LoginInformation } from '../login/login.loginformation';
+import { SmallData } from '../profile/profile.small-data';
+import { SmallDataService } from '../profile/profile.small-data-service';
 
 @Component({
   selector: 'app-about',
@@ -31,6 +33,8 @@ loginInformation = new LoginInformation();
   uid: string;
    // --------------------------------------------------------------------------------
    public modalRef: BsModalRef;
+   // --------------------------------------------------------------------------------------
+   smallData = new SmallData();
    // --------------------------------------------------------------------------------
 workplace = new Workplace();
 workplaces: Workplace[];
@@ -73,9 +77,13 @@ familyMembers: FamilyMembers[];
 // ------------------------------------------------------------------------------------
   constructor( /* FOR NGX BOOTSTRAP  MODAL*/
     private modalService: BsModalService, private aboutService: AboutService,
-    private af: AngularFireAuth, private logService: LoginService) { 
+    private af: AngularFireAuth, private logService: LoginService, 
+    private smallDataService: SmallDataService) { 
       this.af.authState.subscribe(auth => {
         this.uid = auth.uid;
+        // -------------------
+        this.smallData.uid = auth.uid;
+        // --------------------
         this.getWorkplaceByUID();
         this.getProfessionalSkillsByUID();
         this.getCollegeByUID();
@@ -130,6 +138,10 @@ familyMembers: FamilyMembers[];
 // WORKPLACE ALL METHODS ARE HERE
 saveWorkplace(): void {
 this.workplace.uid = this.uid;
+// ---------------------------
+this.smallData.workPlace = this.workplace.workPlace;
+this.addSmallData();
+// ---------------------------
   this.aboutService.saveWorkplace(this.workplace)
   .subscribe(response => {
 this.getWorkplaceByUID();
@@ -198,6 +210,9 @@ deleteWorkplaceById(id: string): void {
 // PROFESSIONAL SKILLS ALL METHODS ARE HERE
 saveProfessionalSkills(): void {
   this.professionalSkill.uid = this.uid;
+  // ---------------------------
+this.smallData.professionalSkill = this.professionalSkill.professionalSkill;
+this.addSmallData();
     this.aboutService.saveProfessionalSkills(this.professionalSkill)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -262,6 +277,9 @@ this.getCollegeByUID();
 // COLLEGE ALL METHODS ARE HERE
 saveCollege(): void {
   this.college.uid = this.uid;
+  // ---------------------------
+this.smallData.college = this.college.college;
+this.addSmallData();
     this.aboutService.saveCollege(this.college)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -329,6 +347,9 @@ saveCollege(): void {
 // HIGH SCHOOL ALL METHODS ARE HERE
 saveHighSchool(): void {
   this.highSchool.uid = this.uid;
+  // ---------------------------
+this.smallData.highSchool = this.highSchool.highSchool;
+this.addSmallData();
     this.aboutService.saveHighSchool(this.highSchool)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -394,6 +415,9 @@ saveHighSchool(): void {
 // CURRENT CITY ALL METHODS ARE HERE
 saveCurrentCity(): void {
   this.currentCity.uid = this.uid;
+  // ---------------------------
+this.smallData.currentCity = this.currentCity.currentCity;
+this.addSmallData();
     this.aboutService.saveCurrentCity(this.currentCity)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -459,6 +483,9 @@ saveCurrentCity(): void {
 // HOME TOWN ALL METHODS ARE HERE
 saveHomeTown(): void {
   this.homeTown.uid = this.uid;
+  // ---------------------------
+this.smallData.homeTown = this.homeTown.homeTown;
+this.addSmallData();
     this.aboutService.saveHomeTown(this.homeTown)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -524,6 +551,9 @@ saveHomeTown(): void {
 // OTHER PLACES LIVED ALL METHODS ARE HERE
 saveOtherPlacesLived(): void {
   this.otherPlacesLived.uid = this.uid;
+  // ---------------------------
+this.smallData.otherPlacesLived = this.otherPlacesLived.otherPlacesLived;
+this.addSmallData();
     this.aboutService.saveOtherPlacesLived(this.otherPlacesLived)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -589,6 +619,9 @@ saveOtherPlacesLived(): void {
 // CONTACT INFORMATION ALL METHODS ARE HERE
 saveContactInformation(): void {
   this.contactInformation.uid = this.uid;
+  // ---------------------------
+this.smallData.contactInformation = this.contactInformation.contactInformation;
+this.addSmallData();
     this.aboutService.saveContactInformation(this.contactInformation)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -654,6 +687,9 @@ saveContactInformation(): void {
 // WEB SITE AND SOCIAL LINK ALL METHODS ARE HERE
 saveWebSiteAndSocialLink(): void {
   this.webSiteAndSocialLink.uid = this.uid;
+  // ---------------------------
+this.smallData.webSiteAndSocialLink = this.webSiteAndSocialLink.webSiteAndSocialLink;
+this.addSmallData();
     this.aboutService.saveWebSiteAndSocialLink(this.webSiteAndSocialLink)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -720,6 +756,9 @@ saveWebSiteAndSocialLink(): void {
 // BasicInformation ALL METHODS ARE HERE
 saveBasicInformation(): void {
   this.basicInformation.uid = this.uid;
+  // ---------------------------
+this.smallData.basicInformation = this.basicInformation.basicInformation;
+this.addSmallData();
     this.aboutService.saveBasicInformation(this.basicInformation)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -785,6 +824,9 @@ saveBasicInformation(): void {
 // RelationShip ALL METHODS ARE HERE
 saveRelationShip(): void {
   this.relationShip.uid = this.uid;
+  // ---------------------------
+this.smallData.relationShip = this.relationShip.relationShip;
+this.addSmallData();
     this.aboutService.saveRelationShip(this.relationShip)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -850,6 +892,10 @@ saveRelationShip(): void {
 // FamilyMembers ALL METHODS ARE HERE
 saveFamilyMembers(): void {
   this.familyMember.uid = this.uid;
+  // ---------------------------
+this.smallData.familyMembers = this.familyMember.familyMembers;
+this.smallData.relation = this.familyMember.relation;
+this.addSmallData();
     this.aboutService.saveFamilyMembers(this.familyMember)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -916,6 +962,9 @@ saveFamilyMembers(): void {
 // FavoriteQuotes ALL METHODS ARE HERE
 saveFavoriteQuotes(): void {
   this.favoriteQuote.uid = this.uid;
+  // ---------------------------
+this.smallData.favoriteQuote = this.favoriteQuote.favoriteQuote;
+this.addSmallData();
     this.aboutService.saveFavoriteQuotes(this.favoriteQuote)
     .subscribe(response => {
   this.getWorkplaceByUID();
@@ -993,6 +1042,15 @@ addLoginInformation(): void {
     this.loginInformation.userName = null;
   }
 
+
+// --------------------------------------------------------------------------------------------
+addSmallData(): void {
+  this.smallDataService.addSmallData(this.smallData)
+  .subscribe((response: Response) => {
+  }, (error) => {
+  });
+  }
+  // --------------------------------------------------------------------------------------------
 
 }
 
