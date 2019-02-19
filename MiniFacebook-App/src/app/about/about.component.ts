@@ -83,6 +83,9 @@ familyMembers: FamilyMembers[];
         this.uid = auth.uid;
         // -------------------
         this.smallData.uid = auth.uid;
+        this.smallData.userName = auth.displayName;
+        this.smallData.email = auth.email;
+        this.smallData.photoUrl = auth.photoURL;
         // --------------------
         this.getWorkplaceByUID();
         this.getProfessionalSkillsByUID();

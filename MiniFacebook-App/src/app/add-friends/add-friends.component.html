@@ -1,45 +1,37 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-
+    
+    <div class=" col-xs-10 col-sm-10 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-4">
       <!-- Media top -->
-      <div id="mediaDiv" *ngFor="let l of allLoginformation">
-        <div class="media">
-          <div class="media-left media-top">
-            <a href="javascript:void(0)"><img id="mediaImage" [src]="l.photoUrl" class="media-object"></a>
+      <div *ngFor="let s of smallDatas">
+
+         <div *ngIf="(uid != s.uid)">
+
+        <div  id="mediaDiv" class="media">
+          <div class="media-left media-middle">
+            <a href="javascript:void(0)"><img id="mediaImage" src="http://localhost:8080/zuul-profileStock/single/photoCode/{{s.photoCode}}" class="media-object"></a>
           </div>
           <div class="media-body">
 
-            <a href="javascript:void(0)" class="media-heading">{{l.userName}}</a>
-           
-
-            <p  id="workedPlaces">{{allWorkplaces.workPlace}}</p>
-
-            <p id="workedPlaces">{{l.createdDate}}</p>
-
-            <p id="workedPlaces">{{l.uid}}</p>
-            <p id="workedPlaces">{{l.email}}</p>
-            <p id="workedPlaces">{{l.lastModifiedDate}}</p>
+            <a id="userName" *ngIf="s.userName" href="javascript:void(0)" >{{s.userName}}</a>
             
+            <a id="userEmail" *ngIf="(!s.userName && s.email)" href="javascript:void(0)" >{{s.email}}</a>
+          
 
+            <p  id="workedPlaces" *ngIf="s.workPlace">Worked at : {{s.workPlace}}</p>
+          
             <p id="workedPlaces">120 mutual friends</p>
-          </div>
-          <div class="media-right media-middle">
+          
             <p id="addFriendText" class="btn btn-primary">Add Friends</p>
-          </div>
-          <div class="media-right media-middle">
             <p id="remove" class="btn btn-default">Remove</p>
-          </div>
+          
+          
         </div>
+     </div>
       </div>
 
 
-
-
-
     </div>
-  </div>
-
-
+  </div> 
 </div>

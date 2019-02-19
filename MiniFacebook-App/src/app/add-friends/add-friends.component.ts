@@ -7,6 +7,8 @@ import { AddFriendService } from './add-friends.service';
 import { AddFriendsAllInformation } from './add-friends.addfriend-information';
 import { AllLoginformation } from './add-friends.add-all-loginformation';
 import { AllWorkplaces } from './add-friends.all-workplaces';
+import { SmallData } from '../profile/profile.small-data';
+import { SmallDataService } from '../profile/profile.small-data-service';
 
 @Component({
   selector: 'app-add-friends',
@@ -14,6 +16,7 @@ import { AllWorkplaces } from './add-friends.all-workplaces';
   styleUrls: ['./add-friends.component.scss']
 })
 export class AddFriendsComponent implements OnInit {
+  uid: string;
   // ---------------------------------------------------------------------------------------------
 loginInformation = new LoginInformation();
  // ------------------------------------------------------------------------------------------
@@ -24,11 +27,13 @@ allLoginformation: AllLoginformation[];
 allWorkplaces: AllWorkplaces;
 // -------------------------------------------------------------------------------------------
 allAddFriendsInformation: AddFriendsAllInformation[];
+// ---------------------------------------------------------------------------------------------
+smallDatas: SmallData[];
 // ----------------------------------------------------------------------------------------------
 constructor(private af: AngularFireAuth, private logService: LoginService
-  , private addFriendService: AddFriendService) {
+  , private addFriendService: AddFriendService, private smallDataService: SmallDataService) {
   this.af.authState.subscribe(auth => {
-
+this.uid = auth.uid;
     this.loginInformation.uid = auth.uid;
     if (auth.displayName) {
       this.loginInformation.userName = auth.displayName;
@@ -37,8 +42,7 @@ constructor(private af: AngularFireAuth, private logService: LoginService
     }
     this.loginInformation.photoUrl = auth.photoURL;
   });
-
- }
+  }
  // ----------------------------------------------------------------------------------------
   ngOnInit() {
     this.addLoginInformation();
@@ -46,6 +50,7 @@ constructor(private af: AngularFireAuth, private logService: LoginService
      this.getAllWorkplaces();
     this.getAllLoginformation();
    // this.getAllAddFriendsInformation();
+   this.getAllSmallData();
   }
 // --------------------------------------------------------------------------------------------
 addLoginInformation(): void {
@@ -87,7 +92,13 @@ getAllAddFriendsInformation(): void {
 }
 */
 
-
+// --------------------------------------------------------------------------------------------
+getAllSmallData(): void {
+  this.smallDataService.getAllSmallData()
+  .subscribe((smallData) => {
+    this.smallDatas = smallData;
+  });
+}
 }
 
 

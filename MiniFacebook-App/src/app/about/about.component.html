@@ -495,7 +495,7 @@
            <div id="deleteOtherPlacesLivedModalBody" class="modal-body">
              <p>Do you want to delete ? {{otherPlacesLived.otherPlacesLived}}</p>
            </div>
-           <button id="deleteOtherPlacesLivedModalBtn" class="btn btn-default" (click)="deleteOtherPlacesLivedById(homeTown.id)"
+           <button id="deleteOtherPlacesLivedModalBtn" class="btn btn-default" (click)="deleteOtherPlacesLivedById(otherPlacesLived.id)"
            (click)="OtherPlacesLivedRefresh()" (click)="modalRef.hide()">Yes</button>
            <button id="deleteOtherPlacesLivedModalCloseBtn" class="btn btn-default" (click)="OtherPlacesLivedRefresh()"
              (click)="modalRef.hide()">No</button>
@@ -640,7 +640,7 @@
            <div id="deleteWebSiteAndSocialLinkModalBody" class="modal-body">
              <p>Do you want to delete ? {{webSiteAndSocialLink.webSiteAndSocialLink}}</p>
            </div>
-           <button id="deleteWebSiteAndSocialLinkModalBtn" class="btn btn-default" (click)="deleteContactInformationById(webSiteAndSocialLink.id)"
+           <button id="deleteWebSiteAndSocialLinkModalBtn" class="btn btn-default" (click)="deleteWebSiteAndSocialLinkById(webSiteAndSocialLink.id)"
            (click)="WebSiteAndSocialLinkRefresh()" (click)="modalRef.hide()">Yes</button>
            <button id="deleteWebSiteAndSocialLinkModalCloseBtn" class="btn btn-default" (click)="WebSiteAndSocialLinkRefresh()"
              (click)="modalRef.hide()">No</button>

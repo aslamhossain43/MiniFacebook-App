@@ -1,6 +1,9 @@
 #mediaDiv{
-  margin-top: 5%;
-   background:lightgray;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 98%;
+  margin-top: 2%;
 }
 
 #mediaImage{
@@ -8,23 +11,36 @@
   height: 50px;
 
 }
-.media-heading{
+#userName{
   letter-spacing: 1px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: bold; 
+  margin-bottom: 1px;
+}
+#userEmail{
+  letter-spacing: 1px;
   font-size: 10px;
-  margin-bottom: 2px;
-  
+  font-weight: bold; 
+  margin-bottom: 1px;
 }
 #workedPlaces{
+margin-top: 1px;
+  font-weight: bold;
+  font-size: 10px;
+  color: black;
   margin-bottom: 1px;
-  font-size: 8px;
-  width: 95%;
 }
 #addFriendText{
+  padding: 2px;
+  margin-left: 1px;
   font-size: 10px;
   text-align: center;
 }
 #remove{
+  padding: 2px;
+  margin-left: 2px;
+  margin-top: 1px;
+  color: red;
   font-size: 10px;
   text-align: center;
 }

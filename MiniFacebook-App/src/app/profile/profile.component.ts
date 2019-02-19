@@ -10,6 +10,7 @@ import { LoginService } from '../login/login.service';
 import { Response } from '@angular/http';
 import { SmallDataService } from './profile.small-data-service';
 import { SmallData } from './profile.small-data';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -48,7 +49,12 @@ loginInformation = new LoginInformation();
     private smallDataService: SmallDataService) {
     this.af.authState.subscribe(auth => {
       this.uid = auth.uid;
+      // ---------------------------
       this.smallData.uid = auth.uid;
+      this.smallData.userName = auth.displayName;
+      this.smallData.email = auth.email;
+      this.smallData.photoUrl = auth.photoURL;
+      // ---------------------------
        this.getLastProfilePhotoInformation();
       this.getProfilePhotosAllInformations();
     });
@@ -164,9 +170,16 @@ addSmallData(): void {
   }, (error) => {
   });
   }
-  // --------------------------------------------------------------------------------------------
 
 
+
+
+
+
+
+
+
+  
 }
 
 
